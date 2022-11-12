@@ -21,10 +21,6 @@ const carSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Colores",
   },
-  motor: {
-    type: String,
-    required: true,
-  },
   titular: {
     type: Schema.Types.ObjectId,
     ref: "Titulares",
