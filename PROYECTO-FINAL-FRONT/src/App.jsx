@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { BuscaDominio } from "./components/BuscaDominio";
-import { GetTarea } from "./components/GetTareas";
+
 import BasicExample from "./components/layout/Navbar";
+import {Routes, Route} from "react-router-dom";
+import { Login } from "./views/Login";
+
 
 function App() {
   return (
-    <div className="container">
-      {<BasicExample />}
-      {<BuscaDominio/>}
-    </div>
+    <>
+    <BasicExample/>
+    <Routes>
+      <Route path='/' element= {<Login/>}/>
+    </Routes>
+    
+    </>
   );
 }
 
