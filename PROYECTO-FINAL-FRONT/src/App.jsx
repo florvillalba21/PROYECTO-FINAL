@@ -1,20 +1,13 @@
-
-import "./components/style.css"
-import Tarjetadenuncia from './components/tarjetadenuncia'
-import Tarjetadominio from './components/tarjetadominio'
-import Sidebar from './components/sidebar'
-import Cards from "./components/cards"
+import Sidebar from "./components/Sidebar";
+import { HomeAdmin } from "./views/HomeAdmin";
 
 function App() {
-  
   return (
     <>
-    <Sidebar/>
-    <Tarjetadominio/>
-    <Tarjetadenuncia/>
-    </>
-  )
 
+      <HomeAdmin />
+    </>
+  );
 }
 
-export default App
+export default App;

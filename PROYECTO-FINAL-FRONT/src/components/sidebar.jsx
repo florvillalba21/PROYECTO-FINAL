@@ -1,14 +1,21 @@
-import react from "react"
-
-
-import React from 'react'
+import React from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
+  const [active, setActive] = useState('inactive')
+
   return (
-    <div>
-        <div className="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+    <>
+      <div
+        className="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column"
+        id="sidebar"
+      >
         <ul className="nav flex-column text-white w-100">
-          <a href="#" className="nav-link h3 text-white my-2"><img src="src\assets\img\cropped-cono.png" width="45px" /> TransiFor<br /></a>
+          <Link to="#" className="nav-link h3 text-white my-2">
+            <img src="src\assets\img\cropped-cono.png" width="45px" /> TransiFor
+            <br />
+          </Link>
           <li href="#" className="nav-link">
             <i className="bi bi-house-fill"></i>
             <span className="mx-2">Inicio</span>
@@ -23,20 +30,26 @@ const Sidebar = () => {
           </li>
         </ul>
         <span className="nav-link h4 w-100">
-          <a href=""><i className="bi bi-box-arrow-left px-2 text-white"></i></a>
+          <Link to="">
+            <i className="bi bi-box-arrow-left px-2 text-white"></i>
+          </Link>
         </span>
       </div>
       <div className="my-container active-cont">
         <nav className="navbar navbar-dark bg-dark px-5">
-          <a className="btn border-0" id="menu-btn"><i><img width="30px" src="src\assets\img\descarga.png" alt="" /></i></a>
+          <Link className="btn border-0" id="menu-btn">
+            <i>
+              <img width="30px" src="src\assets\img\descarga.png" alt="" />
+            </i>
+          </Link>
           <div>
             <p className="h1">Bienvenid@ Inspertor!</p>
           </div>
           <img src="src\assets\img\logo-user.png" width="40px" />
         </nav>
-    </div>
-    </div>
-  )
-}
+      </div>
+    </>
+  );
+};
 
-export default Sidebar
+export default Sidebar;
