@@ -3,9 +3,7 @@ import { PublicRoutes } from "./routers/PublicRoutes";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
-import { HomeAdmin } from "./views/HomeAdmin";
-import { Login } from "./views/Login";
-import { HomeUser } from "./views/HomeUser";
+import { AppRouter } from "./routers/AppRouter";
 
 function App() {
   const user = {
@@ -17,35 +15,7 @@ function App() {
         user,
       }}
     >
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/home"
-            element={
-              <PublicRoutes>
-                <HomeUser />
-              </PublicRoutes>
-            }
-          />
-          {/* <Route
-            path="/login"
-            element={
-              <PublicRoutes>
-                <Login />
-              </PublicRoutes>
-            }
-          /> */}
-
-          <Route
-            path="/*"
-            element={
-              <PrivateRoutes>
-                <HomeAdmin />
-              </PrivateRoutes>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
+      <AppRouter/>
     </AuthContext.Provider>
   );
 }

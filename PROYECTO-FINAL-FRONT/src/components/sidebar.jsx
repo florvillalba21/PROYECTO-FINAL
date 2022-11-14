@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  const [active, setActive] = useState('inactive')
+  // const [active, setActive] = useState('inactive')
 
   return (
     <>
