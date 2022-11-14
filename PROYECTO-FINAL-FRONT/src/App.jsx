@@ -7,7 +7,7 @@ import { AppRouter } from "./routers/AppRouter";
 
 function App() {
   const user = {
-    logged: false,
+    logged: true,
   };
   return (
     <AuthContext.Provider

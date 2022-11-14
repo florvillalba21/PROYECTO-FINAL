@@ -3,12 +3,12 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  // const [active, setActive] = useState('inactive')
+
 
   return (
     <>
       <div
-        className="side-navbar inactive-nav d-flex justify-content-between flex-wrap flex-column"
+        className="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column"
         id="sidebar"
       >
         <ul className="nav flex-column text-white w-100">
@@ -35,7 +35,7 @@ const Sidebar = () => {
           </Link>
         </span>
       </div>
-      <div className="my-container inactive-cont">
+      <div className="my-container active-cont">
         <nav className="navbar navbar-dark bg-dark px-5">
           <Link className="btn border-0" id="menu-btn">
             <i>
