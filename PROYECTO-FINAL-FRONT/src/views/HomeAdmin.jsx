@@ -1,6 +1,6 @@
 import Sidebar from "../components/Sidebar";
-import Tarjetadenuncia from "../components/tarjetadenuncia";
-import Tarjetadominio from "../components/tarjetadominio";
+import Tarjetadenuncia from "../components/Tarjetadenuncia";
+import Tarjetadominio from "../components/Tarjetadominio";
 
 export const HomeAdmin = () => {
   return (

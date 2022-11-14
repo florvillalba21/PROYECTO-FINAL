@@ -5,25 +5,36 @@ import { Routes, Route } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import { HomeAdmin } from "./views/HomeAdmin";
 import { Login } from "./views/Login";
+import { HomeUser } from "./views/HomeUser";
 
 function App() {
-  const user ={
-    logged: true
-  }
+  const user = {
+    logged: false,
+  };
   return (
-    <AuthContext.Provider value={{
-      user
-    }}>
+    <AuthContext.Provider
+      value={{
+        user,
+      }}
+    >
       <BrowserRouter>
         <Routes>
           <Route
+            path="/home"
+            element={
+              <PublicRoutes>
+                <HomeUser />
+              </PublicRoutes>
+            }
+          />
+          {/* <Route
             path="/login"
             element={
               <PublicRoutes>
                 <Login />
               </PublicRoutes>
             }
-          />
+          /> */}
 
           <Route
             path="/*"
