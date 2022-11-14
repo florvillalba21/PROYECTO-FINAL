@@ -3,25 +3,23 @@ import { HomeAdmin } from "../views/HomeAdmin";
 import { HomeUser } from "../views/HomeUser";
 import { Login } from "../views/Login";
 import { Dashboard } from "./Dashboard";
+
 import { PrivateRoutes } from "./PrivateRoutes";
-import { PublicRoutes } from "./PublicRoutes";
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-      
+        <Route path="/" element={<HomeUser />} />
+
         <Route
-          path="/"
+          path="admin/*"
           element={
-            <PublicRoutes>
-              <HomeUser />
-            </PublicRoutes>
+            <PrivateRoutes>
+              <Dashboard />
+            </PrivateRoutes>
           }
         />
-
-        <Route path="admin/*" element={<Dashboard />} />
-        
       </Routes>
     </BrowserRouter>
   );
