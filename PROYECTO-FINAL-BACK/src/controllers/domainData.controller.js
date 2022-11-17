@@ -3,8 +3,8 @@ const ctrlCar = {}
 
 
 ctrlCar.getCarData = async(req, res)=>{
-    const {matricula} = req.body
-    const carData = await cars.findOne({matricula})
+    
+    const carData = await cars.find()
 
     if(!carData)
     return res.json({

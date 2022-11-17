@@ -115,7 +115,7 @@ export const Footer = () => {
 
       <div
         className="text-center p-4"
-        style={{backgroundColor: "rgba(0, 0, 0, 0.025);"}}
+        style={{backgroundColor:"rgba(0, 0, 0, 0.025)"}}
       >
         © 2021 Copyright:
         <Link className="text-reset fw-bold" href="https://mdbootstrap.com/">
