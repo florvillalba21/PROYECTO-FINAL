@@ -72,6 +72,7 @@ body {
   caret-color: transparent;
   line-height: 40px;
   transition: width 0.4s linear;
+
 }
 
 .searchbar:hover > .search_input {

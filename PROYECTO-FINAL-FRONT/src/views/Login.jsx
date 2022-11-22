@@ -25,7 +25,7 @@ export const Login = () => {
                         </div>
 
                         <h5 className="fw-normal mb-3 pb-3">
-                          Sign into your account
+                          Ingresa tu cuenta
                         </h5>
 
                         <div className="form-outline mb-4">
@@ -38,7 +38,7 @@ export const Login = () => {
                             className="form-label"
                             htmlFor="form2Example17"
                           >
-                            Email address
+                            Número de credencial
                           </label>
                         </div>
 
@@ -52,7 +52,7 @@ export const Login = () => {
                             className="form-label"
                             htmlFor="form2Example27"
                           >
-                            Password
+                            Contraseña
                           </label>
                         </div>
 
@@ -61,22 +61,22 @@ export const Login = () => {
                             className="btn btn-dark btn-lg btn-block"
                             type="button"
                           >
-                            Login
+                            Iniciar Sesión
                           </button>
                         </div>
 
                         <Link className="small text-muted" to="#!">
-                          Forgot password?
+                          ¿No recuerdas tu contraseña?
                         </Link>
                         <p className="mb-5 pb-lg-2">
-                          Don't have an account?{" "}
-                          <Link to="/register">Register here</Link>
+                          ¿No tienes una cuenta?{" "}
+                          <Link to="/register">Registrate aquí</Link>
                         </p>
                         <Link to="#!" className="small text-muted">
-                          Terms of use.
+                          Terminos de uso.
                         </Link>
                         <Link to="#!" className="small text-muted">
-                          Privacy policy
+                          Políticas de Privacidad
                         </Link>
                       </form>
                     </div>

@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const { check } = require("express-validator");
-const { getCarData } = require("../controllers/domainData.controller");
+const { getCarData, postCarData } = require("../controllers/domainData.controller");
 
-router.get("/buscarDominio",getCarData);
+router.get("/buscarDom/:id",getCarData);
+router.post("/nuevoDom",postCarData);
 
 module.exports = router;
