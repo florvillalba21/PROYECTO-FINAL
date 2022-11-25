@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-export const Login = () => {
-  const loguear = async (e) => {
+export const Register = () => {
+  const registrar = async (e) => {
     e.preventDefault();
     const credencial = document.getElementById("credencial").value;
     const password = document.getElementById("password").value;
@@ -10,7 +10,7 @@ export const Login = () => {
       password: password,
     };
     const requestOptions = {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         "My-Custom-Header": "foobar",
@@ -18,7 +18,7 @@ export const Login = () => {
       body: JSON.stringify(data),
     };
     try {
-      const res = await fetch(`http://localhost:4000/register`, requestOptions);
+      const res = await fetch(`http://localhost:4000/login`, requestOptions);
       const resJS = await res.json();
       console.log(resJS);
     } catch (error) {
@@ -45,7 +45,7 @@ export const Login = () => {
                     <form>
                       <div className="d-flex align-items-center mb-3 pb-1">
                         <i className="fas fa-cubes fa-2x me-3"></i>
-                        <span className="h1 fw-bold mb-0">Iniciar Sesion</span>
+                        <span className="h1 fw-bold mb-0">Registrarse</span>
                       </div>
 
                       <h5 className="fw-normal mb-3 pb-3">Ingresa tu cuenta</h5>
@@ -74,21 +74,14 @@ export const Login = () => {
 
                       <div className="pt-1 mb-4">
                         <button
-                          onClick={loguear}
+                          onClick={registrar}
                           className="btn btn-dark btn-lg btn-block"
                           type="button"
                         >
-                          Iniciar Sesión
+                          Registrarse
                         </button>
                       </div>
 
-                      <Link className="small text-muted" to="#!">
-                        ¿No recuerdas tu contraseña?
-                      </Link>
-                      <p className="mb-5 pb-lg-2">
-                        ¿No tienes una cuenta?{" "}
-                        <Link to="/register">Registrate aquí</Link>
-                      </p>
                       <Link to="#!" className="small text-muted">
                         Terminos de uso.
                       </Link>

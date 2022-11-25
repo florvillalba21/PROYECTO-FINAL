@@ -5,12 +5,12 @@ const ctrlAdmin = {}
 
 
 ctrlAdmin.postAdmin = async (req, res)=> {
-    const {username, password: passRecibida} = req.body
+    const {credencial, password: passRecibida} = req.body
     const passEncriptada = bcrypt.hashSync(passRecibida, 10)
 
     const newAdmin = new Admin({
-        username,
-        password: passEncriptada
+        credencial,
+        password : passEncriptada
     });
 
     const admin = await newAdmin.save()
@@ -23,10 +23,10 @@ ctrlAdmin.postAdmin = async (req, res)=> {
 }
 
 ctrlAdmin.getAdmin = async(req, res) =>{
-    const { username, password } = req.body;
+    const {credencial, password } = req.body;
 
   try {
-    const admin = await Admin.findOne({ username });
+    const admin = await Admin.findOne({ credencial });
     if (!admin) {
       return res.status(400).json({
         ok: false,

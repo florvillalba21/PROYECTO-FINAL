@@ -2,18 +2,17 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const BuscadorDom = () => {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "My-Custom-Header": "foobar",
+    },
+  };
   const [data, setData] = useState({});
   const dataDom = async (e) => {
     e.preventDefault();
     try {
-      const requestOptions = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "My-Custom-Header": "foobar",
-        },
-      };
-
       const dom = document.getElementById("matricula").value;
       const res = await fetch(
         `http://localhost:4000/buscarDom/${dom}`,

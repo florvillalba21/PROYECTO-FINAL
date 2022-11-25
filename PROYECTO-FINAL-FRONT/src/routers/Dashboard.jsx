@@ -6,7 +6,6 @@ export const Dashboard = () => {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />} />
         <Route path="/homeAdmin" element={<HomeAdmin />} />
       </Routes>
     </>

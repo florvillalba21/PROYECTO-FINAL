@@ -8,14 +8,11 @@ router.get("/login", getAdmin);
 router.post(
   "/register",
   [
-    check("username")
+    check("credencial")
       .not()
       .isEmpty()
       .isString()
       .withMessage("campo invalido")
-      .custom(validateUsername),
-
-    validarCampos,
   ],
   postAdmin
 );
