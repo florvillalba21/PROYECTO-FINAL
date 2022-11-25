@@ -27,6 +27,7 @@ ctrlAdmin.getAdmin = async(req, res) =>{
 
   try {
     const admin = await Admin.findOne({ credencial });
+    console.log(admin)
     if (!admin) {
       return res.status(400).json({
         ok: false,
@@ -34,7 +35,7 @@ ctrlAdmin.getAdmin = async(req, res) =>{
       });
     }
 
-    if (!admin.isActive) {
+    if (!admin.estado) {
       return res.status(400).json({
         ok: false,
         msg: "ha ocurrido un error fatal :o" - "Usuario inactivo",

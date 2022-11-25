@@ -4,7 +4,18 @@ const validarCampos = require("../middlewares/validate-fields");
 const validateUsername = require("../middlewares/validateUsername");
 const router = require("express").Router();
 
-router.get("/login", getAdmin);
+router.post(
+  "/login",
+  [
+    check("credencial")
+      .not()
+      .isEmpty()
+      .isString()
+      .withMessage("campo invalido")
+  ],
+  getAdmin
+);
+
 router.post(
   "/register",
   [

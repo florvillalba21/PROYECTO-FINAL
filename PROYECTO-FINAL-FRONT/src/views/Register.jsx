@@ -18,7 +18,7 @@ export const Register = () => {
       body: JSON.stringify(data),
     };
     try {
-      const res = await fetch(`http://localhost:4000/login`, requestOptions);
+      const res = await fetch(`http://localhost:4000/register`, requestOptions);
       const resJS = await res.json();
       console.log(resJS);
     } catch (error) {
@@ -35,7 +35,7 @@ export const Register = () => {
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                    src="../public/img/inicio.png"
                     alt="login form"
                     className="img-fluid"
                   />
