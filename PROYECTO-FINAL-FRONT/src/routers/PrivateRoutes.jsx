@@ -6,5 +6,5 @@ export const PrivateRoutes = ({children})=>{
     const {user} = useContext(AuthContext)
 
     return user.logged
-    ? children : <Navigate to='/login'/>
+    ? children : <Navigate to='/'/>
 }

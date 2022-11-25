@@ -2,13 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import { HomeAdmin } from "../views/HomeAdmin";
 import { Login } from "../views/Login";
 
-export const Dashboard =  ()=>{
+export const Dashboard = () => {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login/> } />
+        <Route path="/login" element={<Login />} />
         <Route path="/homeAdmin" element={<HomeAdmin />} />
-        
       </Routes>
     </>
   );
