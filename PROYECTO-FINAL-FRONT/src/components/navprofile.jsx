@@ -1,8 +1,8 @@
-import React from "react";
-import { useState, useEffect, useRef } from "react";
+import React from 'react'
 import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 
-const Sidebar = () => {
+const NavUser = () => {
   return (
     <>
       <div
@@ -41,13 +41,13 @@ const Sidebar = () => {
             </i>
           </Link>
           <div>
-            <p className="h1">Bienvenid@ Inspertor!</p>
+            <p className="h1">Perfil</p>
           </div>
           <img src="src\assets\img\logo-user.png" width="40px" />
         </nav>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default NavUser;

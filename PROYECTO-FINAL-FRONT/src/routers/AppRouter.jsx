@@ -4,6 +4,7 @@ import { HomeUser } from "../views/HomeUser";
 import { Login } from "../views/Login";
 import { Register } from "../views/Register";
 import { Dashboard } from "./Dashboard";
+import { User } from "./User"
 
 import { PrivateRoutes } from "./PrivateRoutes";
 
@@ -18,6 +19,7 @@ export const AppRouter = () => {
           path="admin/*"
           element={
             <PrivateRoutes>
+              <User/>
               <Dashboard />
             </PrivateRoutes>
           }
