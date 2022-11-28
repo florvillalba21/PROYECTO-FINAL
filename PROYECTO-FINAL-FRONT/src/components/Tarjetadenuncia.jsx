@@ -7,7 +7,7 @@ const Tarjetadenuncia = () => {
           <div className="col-md-4">
             <div
               className="card"
-              style={{ width: "18rem", position: "relative", left: "80%" }}
+              style={{ width: "20rem", position: "relative", left: "80%" }}
             >
               <img
                 src="../src\assets\img\foto1.jpeg"

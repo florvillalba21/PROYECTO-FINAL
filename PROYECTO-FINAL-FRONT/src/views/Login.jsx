@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useRef } from "react";
 import { Link, Navigate } from "react-router-dom";
-import App from "../App";
-import { AuthContext } from "../context/AuthContext";
+import {App} from "./../App"
+import { AuthContext, ProviderAuth } from "../context/AuthContext";
+
 import { PrivateRoutes } from "../routers/PrivateRoutes";
 
 export const Login = () => {
@@ -18,12 +19,11 @@ export const Login = () => {
     };
     try {
       const res = await axios.post(url, data);
-      const token = res.data
-      console.log(token);
-
+      const token = res.data;
+     
       <AuthContext.Provider value={{token}}>
-        <App/>
-        <PrivateRoutes />
+        <PrivateRoutes/>
+
       </AuthContext.Provider>;
     } catch (error) {
       console.error("There was an error!", error);

@@ -6,6 +6,6 @@ export const PrivateRoutes = ({children})=>{
     const  token = useContext(AuthContext)
     console.log(token)
 
-    return !token
+    return token
     ?<Navigate to='/login'/> : children; 
 }

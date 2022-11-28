@@ -6,7 +6,7 @@ import NavAdmin from '../components/layout/NavAdmin';
 const Profile = () => {
   return (
     <>
-    <NavAdmin/>
+    <NavAdmin text={"Su perfil"}/>
     <div>
         <UserProfile/>
         <CambiarPw/>

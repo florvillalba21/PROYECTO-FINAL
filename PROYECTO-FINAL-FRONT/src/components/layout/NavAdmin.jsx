@@ -1,31 +1,53 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 
-const NavAdmin = () => {
+const NavAdmin = ({text}) => {
+  const classNav =
+    "side-navbar active-nav d-flex justify-content-between flex-wrap flex-column";
+  const classNavIn =
+    "side-navbar inactive-nav d-flex justify-content-between flex-wrap flex-column";
+
+  const classBtn = "my-container active-cont";
+  const classBtnIn = "my-container inactive-cont";
+  const [nav, setNav] = useState(classNav);
+  const [btn, setBtn] = useState(classBtn);
+
+  const navAction = (e) => {
+    e.preventDefault();
+    if (nav == classNav && btn == classBtn) {
+      setNav(classNavIn);
+      setBtn(classBtnIn);
+    } else {
+      setNav(classNav);
+      setBtn(classBtn);
+    }
+  };
+
+  useEffect(() => {
+    console.log(nav);
+  });
   return (
     <>
-      <div
-        className="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column"
-        id="sidebar"
-      >
+      <div className={nav} id="sidebar">
         <ul className="nav flex-column text-white w-100">
-          <Link to="#" className="nav-link h3 text-white my-2">
-            <img src="../src\assets\img\cropped-cono.png" width="45px" /> Transit.AR
+          <Link to="/homeAdmin" className="nav-link h3 text-white my-2">
+            <img src="../src\assets\img\cropped-cono.png" width="45px" />{" "}
+            Transit.AR
             <br />
           </Link>
-          <li href="#" className="nav-link">
+          <Link to="/homeAdmin" className="nav-link h5 text-white my-2">
             <i className="bi bi-house-fill"></i>
             <span className="mx-2">Inicio</span>
-          </li>
-          <li href="#" className="nav-link">
+          </Link>
+          <Link to="/profile" className="nav-link h5 text-white my-2">
             <i className="bi bi-person-fill"></i>
             <span className="mx-2">Perfil</span>
-          </li>
-          <li href="#" className="nav-link">
+          </Link>
+          <Link to="/ayuda" className="nav-link h5 text-white my-2">
             <i className="bi bi-question-circle"></i>
             <span className="mx-2">Ayuda</span>
-          </li>
+          </Link>
         </ul>
         <span className="nav-link h4 w-100">
           <Link to="">
@@ -33,21 +55,28 @@ const NavAdmin = () => {
           </Link>
         </span>
       </div>
-      <div className="my-container active-cont">
+      <div className={btn}>
         <nav className="navbar navbar-dark bg-dark px-5">
           <Link className="btn border-0" id="menu-btn">
             <i>
-              <img width="30px" src="../src\assets\img\descarga.png" alt="" />
+              <img
+                onClick={navAction}
+                width="30px"
+                src="../src\assets\img\descarga.png"
+                alt=""
+              />
             </i>
           </Link>
           <div>
-            <p className="h1">Perfil</p>
+            <p className="h1">{text}</p>
           </div>
-          <img src="../src\assets\img\logo-user.png" width="40px" />
+          <Link to = "/profile">
+            <img src="../src\assets\img\logo-user.png" width="40px" />
+          </Link>
         </nav>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default NavAdmin;

@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import { HomeAdmin } from "../views/HomeAdmin";
-import { Login } from "../views/Login";
 import Profile from "../views/Profile";
 
 export const Dashboard = () => {
