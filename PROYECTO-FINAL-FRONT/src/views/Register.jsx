@@ -1,30 +1,22 @@
-import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 export const Register = () => {
-  const credencial = document.getElementById("credencial").value;
-  const password = document.getElementById("password").value;
-  const client = axios.create({
-    url: "http://localhost:4000/register",
-  });
-  const [resultado, setResultado] = useState({});
-
   const registrar = async (e) => {
     e.preventDefault();
+    const credencial = document.getElementById("credencial").value;
+    const password = document.getElementById("password").value;
+    const url = "http://localhost:4000/register";
+    const data = {
+      credencial: credencial,
+      password: password,
+    };
 
     try {
-      const res = await client.post({
-        title: "register",
-        body: {
-          credencial: credencial,
-          password: password,
-        },
-      });
-      setResultado(res.data);
-      console.log(resultado)
+      const res = await axios.post(url, data);
+      console.log(res.data);
     } catch (error) {
-      console.error("There was an error!", error);
+      console.log(error);
     }
   };
 

@@ -1,12 +1,12 @@
 import React from 'react'
-import NavUser from '../components/layout/navprofile';
-import UserProfile from "../components/layout/userprofile";
-import CambiarPw from "../components/layout/cambiarpw";
+import UserProfile from "../components/Userprofile";
+import CambiarPw from "../components/CambiarPass";
+import NavAdmin from '../components/layout/NavAdmin';
 
 const Profile = () => {
   return (
     <>
-    <NavUser/>
+    <NavAdmin/>
     <div>
         <UserProfile/>
         <CambiarPw/>

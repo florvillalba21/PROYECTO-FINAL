@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 
-const NavUser = () => {
+const NavAdmin = () => {
   return (
     <>
       <div
@@ -11,7 +11,7 @@ const NavUser = () => {
       >
         <ul className="nav flex-column text-white w-100">
           <Link to="#" className="nav-link h3 text-white my-2">
-            <img src="src\assets\img\cropped-cono.png" width="45px" /> Transit.AR
+            <img src="../src\assets\img\cropped-cono.png" width="45px" /> Transit.AR
             <br />
           </Link>
           <li href="#" className="nav-link">
@@ -37,17 +37,17 @@ const NavUser = () => {
         <nav className="navbar navbar-dark bg-dark px-5">
           <Link className="btn border-0" id="menu-btn">
             <i>
-              <img width="30px" src="src\assets\img\descarga.png" alt="" />
+              <img width="30px" src="../src\assets\img\descarga.png" alt="" />
             </i>
           </Link>
           <div>
             <p className="h1">Perfil</p>
           </div>
-          <img src="src\assets\img\logo-user.png" width="40px" />
+          <img src="../src\assets\img\logo-user.png" width="40px" />
         </nav>
       </div>
     </>
   )
 }
 
-export default NavUser;
+export default NavAdmin;

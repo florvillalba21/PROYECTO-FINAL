@@ -11,7 +11,7 @@ const Tarjetadominio = () => {
               style={{ width: "18rem", position: "relative", left: "80%" }}
             >
               <img
-                src="src\assets\img\foto3.jpeg"
+                src="../src\assets\img\foto3.jpeg"
                 className="card-img-top"
                 alt="..."
               />
@@ -56,7 +56,7 @@ const Tarjetadominio = () => {
                         <div className="modal-body">
                           <div className="mb-3">
                             <label
-                              for="exampleFormControlInput1"
+                              htmlFor="exampleFormControlInput1"
                               className="form-label"
                             >
                               Ingrese el domoninio del vehiculo:

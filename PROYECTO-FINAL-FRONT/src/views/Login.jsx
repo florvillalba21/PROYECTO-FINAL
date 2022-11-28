@@ -1,38 +1,28 @@
-import { useContext } from "react";
-import { Link, Navigate, useH } from "react-router-dom";
+import axios from "axios";
+import { Link, Navigate } from "react-router-dom";
 import App from "../App";
 import { AuthContext } from "../context/AuthContext";
-import { HomeAdmin } from "./HomeAdmin";
+import { PrivateRoutes } from "../routers/PrivateRoutes";
 
 export const Login = () => {
   const loguear = async (e) => {
     e.preventDefault();
     const credencial = document.getElementById("credencial").value;
     const password = document.getElementById("password").value;
+    const url = "http://localhost:4000/login";
     const data = {
       credencial: credencial,
       password: password,
     };
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "My-Custom-Header": "foobar",
-      },
-      body: JSON.stringify(data),
-    };
+
     try {
-      const res = await fetch(`http://localhost:4000/login`, requestOptions);
-      const token = await res.json();
+      const res = await axios.post(url, data);
+      const token = res.data;
       console.log(token);
 
-      <AuthContext.Provider
-        value={{
-          token,
-        }}
-      >
-        <App />
-      </AuthContext.Provider>;
+      <AuthContext.Provider value={token}>
+        <PrivateRoutes/>
+      </AuthContext.Provider>
     } catch (error) {
       console.error("There was an error!", error);
     }

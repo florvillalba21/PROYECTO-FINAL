@@ -1,11 +1,11 @@
-import Sidebar from "../components/Sidebar";
+import NavAdmin from "../components/layout/NavAdmin";
 import Tarjetadenuncia from "../components/Tarjetadenuncia";
 import Tarjetadominio from "../components/Tarjetadominio";
 
 export const HomeAdmin = () => {
   return (
     <>
-      <Sidebar/>
+      <NavAdmin/>
       <div className="container card-group">
         <Tarjetadenuncia />
         <Tarjetadominio/>

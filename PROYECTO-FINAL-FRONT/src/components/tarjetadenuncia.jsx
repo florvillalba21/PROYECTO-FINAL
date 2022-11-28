@@ -2,7 +2,7 @@ import React from "react";
 
 const Tarjetadenuncia = () => {
   return (
-      <div classNameName="card-mb3">
+      <div className="card-mb3">
         <div className="row g-0">
           <div className="col-md-4">
             <div
@@ -10,7 +10,7 @@ const Tarjetadenuncia = () => {
               style={{ width: "18rem", position: "relative", left: "80%" }}
             >
               <img
-                src="src\assets\img\foto1.jpeg"
+                src="../src\assets\img\foto1.jpeg"
                 className="card-img-top"
                 alt="..."
               />
@@ -80,7 +80,7 @@ const Tarjetadenuncia = () => {
                         </div>
                         <div className="modal-body">
                           <label
-                            for="exampleFormControlInput1"
+                            htmlFor="exampleFormControlInput1"
                             className="form-label"
                           >
                             Ingrese el domoninio del vehiculo:
