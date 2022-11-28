@@ -1,28 +1,30 @@
 import axios from "axios";
+import { useRef } from "react";
 import { Link, Navigate } from "react-router-dom";
 import App from "../App";
 import { AuthContext } from "../context/AuthContext";
 import { PrivateRoutes } from "../routers/PrivateRoutes";
 
 export const Login = () => {
+  const inpCredencial = useRef();
+  const inpPassword = useRef();
   const loguear = async (e) => {
     e.preventDefault();
-    const credencial = document.getElementById("credencial").value;
-    const password = document.getElementById("password").value;
+
     const url = "http://localhost:4000/login";
     const data = {
-      credencial: credencial,
-      password: password,
+      credencial: inpCredencial.current.value,
+      password: inpPassword.current.value
     };
-
     try {
       const res = await axios.post(url, data);
-      const token = res.data;
+      const token = res.data
       console.log(token);
 
-      <AuthContext.Provider value={token}>
-        <PrivateRoutes/>
-      </AuthContext.Provider>
+      <AuthContext.Provider value={{token}}>
+        <App/>
+        <PrivateRoutes />
+      </AuthContext.Provider>;
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -37,7 +39,7 @@ export const Login = () => {
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                    src="../public/img/inicio.png"
+                    src="/img/inicio.png"
                     alt="login form"
                     className="img-fluid"
                   />
@@ -57,6 +59,7 @@ export const Login = () => {
                           type="text"
                           id="credencial"
                           className="form-control form-control-lg"
+                          ref={inpCredencial}
                         />
                         <label className="form-label" htmlFor="form2Example17">
                           Número de credencial
@@ -68,6 +71,7 @@ export const Login = () => {
                           type="password"
                           id="password"
                           className="form-control form-control-lg"
+                          ref={inpPassword}
                         />
                         <label className="form-label" htmlFor="form2Example27">
                           Contraseña
