@@ -8,6 +8,7 @@ import { Login } from "./views/Login";
 import { Register } from "./views/Register";
 
 export const App = () => {
+  const token = useContext(AuthContext)
   return (
     
       <BrowserRouter>

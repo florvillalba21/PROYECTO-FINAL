@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useRef } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import {App} from "./../App"
 import { AuthContext, ProviderAuth } from "../context/AuthContext";
-
-import { PrivateRoutes } from "../routers/PrivateRoutes";
+import { HomeAdmin } from "./HomeAdmin";
 
 export const Login = () => {
+  const navigate = useNavigate()
   const inpCredencial = useRef();
   const inpPassword = useRef();
   const loguear = async (e) => {
@@ -21,10 +21,13 @@ export const Login = () => {
       const res = await axios.post(url, data);
       const token = res.data;
      
-      <AuthContext.Provider value={{token}}>
-        <PrivateRoutes/>
-
-      </AuthContext.Provider>;
+      <ProviderAuth value={{token}}>
+        <HomeAdmin/>
+      </ProviderAuth>;
+      if(token){
+        navigate('/homeAdmin')
+      }
+     
     } catch (error) {
       console.error("There was an error!", error);
     }

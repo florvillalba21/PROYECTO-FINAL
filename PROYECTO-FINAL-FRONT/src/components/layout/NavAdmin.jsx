@@ -48,7 +48,7 @@ const NavAdmin = ({text}) => {
           </Link>
         </ul>
         <span className="nav-link h4 w-100">
-          <Link to="">
+          <Link to="/login">
             <i className="bi bi-box-arrow-left px-2 text-white"></i>
           </Link>
         </span>

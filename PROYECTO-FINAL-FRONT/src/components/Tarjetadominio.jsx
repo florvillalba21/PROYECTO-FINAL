@@ -14,6 +14,7 @@ const Tarjetadominio = () => {
       setData(res.data);
       console.log(res.data)
       
+      
     } catch (error) {
       console.error("There was an error!", error);
     }
