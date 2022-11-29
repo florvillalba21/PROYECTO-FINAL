@@ -9,22 +9,6 @@ const carsSchema = new Schema({
         type:String,
         required: true
     },
-    cedula: {
-        type: Boolean,
-        required: true
-    },
-    carnet: {
-        type: Boolean,
-        required: true
-    }, 
-    seguro: {
-        type: Boolean,
-        required: true
-    },
-    servis: {
-        type: Boolean,
-        required: true
-    },
     marca: {
         type: String,
         required: true
@@ -32,7 +16,24 @@ const carsSchema = new Schema({
     modelo: {
         type: String,
         required: true
-    }
+    },
+    cedula: {
+        type: Boolean,
+        default: true
+    },
+    carnet: {
+        type: Boolean,
+        default: true
+    }, 
+    seguro: {
+        type: Boolean,
+        default: true
+    },
+    servis: {
+        type: Boolean,
+        default: true
+    },
+    
 })
 
 

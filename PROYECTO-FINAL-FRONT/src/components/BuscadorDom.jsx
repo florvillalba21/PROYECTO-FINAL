@@ -11,9 +11,10 @@ export const BuscadorDom = () => {
   const dataDom = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:3000/buscarDom";
+      const url = "http://localhost:4000/buscarDom";
 
       const res = await axios.get(`${url}/${inpDom.current.value}`);
+      console.log(data)
       setData(res.data);
     } catch (error) {
       console.error("There was an error!", error);
