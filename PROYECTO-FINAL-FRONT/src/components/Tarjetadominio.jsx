@@ -28,7 +28,7 @@ const Tarjetadominio = () => {
             style={{ width: "20rem", position: "relative", left: "80%" }}
           >
             <img
-              src="../src\assets\img\foto3.jpeg"
+              src="../src\assets\img\inspector.png"
               className="card-img-top"
               alt="..."
             />

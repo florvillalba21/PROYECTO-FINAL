@@ -46,19 +46,6 @@ export const Navbar = () => {
                     Action
                   </Link>
                 </li>
-                <li>
-                  <Link className="dropdown-item" href="#">
-                    Another action
-                  </Link>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <Link className="dropdown-item" href="#">
-                    Something else here
-                  </Link>
-                </li>
               </ul>
             </li>
           </ul>
