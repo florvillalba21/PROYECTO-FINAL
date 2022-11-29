@@ -1,5 +1,5 @@
 const { check } = require("express-validator");
-const { postAdmin, getAdmin } = require("../controllers/login.controller");
+const { postAdmin, loginAdmin } = require("../controllers/login.controller");
 const validarCampos = require("../middlewares/validate-fields");
 const validateCredencial = require("../middlewares/validateCredencial");
 const router = require("express").Router();
@@ -13,7 +13,7 @@ router.post(
       .isString()
       .withMessage("campo invalido")
   ],
-  getAdmin
+  loginAdmin
 );
 
 router.post(
@@ -22,7 +22,7 @@ router.post(
     check("credencial")
       .not()
       .isEmpty()
-      .isString()
+      .isNumeric()
       .withMessage("campo invalido")
   ],
   postAdmin

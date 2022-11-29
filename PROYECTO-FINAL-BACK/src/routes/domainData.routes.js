@@ -1,16 +1,12 @@
 const router = require("express").Router();
 const { check } = require("express-validator");
-const { getCarData, postCarData } = require("../controllers/domainData.controller");
+const { getCarData, postDenuncia, postAuto } = require("../controllers/domainData.controller");
+const validateJWT = require("../middlewares/validateJWT");
 
-router.get("/buscarDom/:id",getCarData);
-router.post("/nuevoDom",[
-    check("matricula")
-    .not()
-    .isEmpty()
-    .isString()
-    .withMessage("campo invalido")
-],postCarData);
 
-router.post("/nuevaDenuncia")
+router.get("/buscarDom/:id",[validateJWT],getCarData);
+
+router.post("/nuevaDenuncia",[validateJWT], postDenuncia)
+router.post("/subirAuto", postAuto)
 
 module.exports = router;

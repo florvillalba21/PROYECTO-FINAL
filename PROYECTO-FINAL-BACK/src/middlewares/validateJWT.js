@@ -14,15 +14,16 @@ const validateJWT = async (req, res, next) => {
         })
     };
     
-    // let token = auth.substring(7)
+
 
     try {
-        const { uid } = jwt.verify(token, process.env.SECRET)
-        const admin = await Admins.findById(uid)
-        // console.log(user)
+        const { credencial } = jwt.verify(token, process.env.SECRET)
+        const admin = await Admins.findOne({credencial: credencial})
+        
 
         if (!admin) {
             return res.status(401).json({
+                ok: false,
                 error: 'Token no válido - usuario no existe en BD'
             });
         }
@@ -30,6 +31,7 @@ const validateJWT = async (req, res, next) => {
         
         if (!admin.isActive) {
             return res.status(401).json({
+                ok: false,
                 msg: 'Token no válido - usuario con estado false'
             });
         }

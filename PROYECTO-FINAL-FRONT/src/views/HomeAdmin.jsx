@@ -1,13 +1,18 @@
+import { useReducer } from "react";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavAdmin from "../components/layout/NavAdmin";
 import Tarjetadenuncia from "../components/Tarjetadenuncia";
 import Tarjetadominio from "../components/Tarjetadominio";
-import { AdminContext } from "../context/AdminContext";
-import { AuthContext } from "../context/AuthContext";
 
 export const HomeAdmin = () => {
-  const token = useContext(AuthContext);
-  console.log(token)
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem("token");
+  if (!token) {
+    navigate("/login");
+  }
+
+ 
   return (
     <>
       <NavAdmin text={"Bienvenido :)"} />
@@ -16,10 +21,8 @@ export const HomeAdmin = () => {
         className="container card-group"
         style={{ padding: "30px", paddingLeft: "250px" }}
       >
-        
-          <Tarjetadenuncia />
-          <Tarjetadominio />
-        
+        <Tarjetadenuncia />
+        <Tarjetadominio />
       </div>
     </>
   );

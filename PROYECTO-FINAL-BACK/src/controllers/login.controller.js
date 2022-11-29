@@ -32,7 +32,7 @@ ctrlAdmin.postAdmin = async (req, res) => {
   });
 };
 
-ctrlAdmin.getAdmin = async (req, res) => {
+ctrlAdmin.loginAdmin = async (req, res) => {
   const { nombre, apellido, credencial, password } = req.body;
 
   try {
@@ -61,7 +61,7 @@ ctrlAdmin.getAdmin = async (req, res) => {
       });
     }
 
-    const token = await generateT({ uid: admin._id });
+    const token = await generateT({ credencial: admin.credencial });
     return res.json({ token });
   } catch (error) {
     console.log(error);

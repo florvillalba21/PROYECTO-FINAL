@@ -21,9 +21,7 @@ export const Login = () => {
       const res = await axios.post(url, data);
       const token = res.data;
      
-      <ProviderAuth value={{token}}>
-        <HomeAdmin/>
-      </ProviderAuth>;
+      sessionStorage.setItem("token", token)
       if(token){
         navigate('/homeAdmin')
       }

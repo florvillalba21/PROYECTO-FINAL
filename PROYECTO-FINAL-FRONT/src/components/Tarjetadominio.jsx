@@ -1,16 +1,24 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Tarjetadominio = () => {
+  const token= sessionStorage.getItem('token')
+  const navigate= useNavigate()
   const inpDom = useRef();
   const [data = {}, setData] = useState({});
+  
   const dataDom = async () => {
     try {
-      const url = "http://localhost:4000/buscarDom";
+      if(!token){
+        navigate('/login')
+      }
 
+      const url = "http://localhost:4000/buscarDom";
       const res = await axios.get(`${url}/${inpDom.current.value}`);
-      setData(res.data);
-      console.log(res.data)
+      if(res.data != false){
+        setData(res.data);
+      }
       
       
     } catch (error) {
@@ -46,6 +54,9 @@ const Tarjetadominio = () => {
                 >
                   Verificar
                 </button>
+                <div>
+
+                </div>
                 <div
                   className="modal fade"
                   id="dominio"
