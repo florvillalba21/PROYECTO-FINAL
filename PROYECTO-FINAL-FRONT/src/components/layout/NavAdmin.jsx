@@ -30,7 +30,7 @@ const NavAdmin = ({text}) => {
       <div className={nav} id="sidebar">
         <ul className="nav flex-column text-white w-100">
           <Link to="/homeAdmin" className="nav-link h3 text-white my-2">
-            <img src="../src\assets\img\cropped-cono.png" width="45px" />{" "}
+            <img src="../src\assets\img\cono-barra.png" width="45px" />{" "}
             Transit.AR
             <br />
           </Link>
@@ -59,8 +59,8 @@ const NavAdmin = ({text}) => {
             <i>
               <img
                 onClick={navAction}
-                width="30px"
-                src="../src\assets\img\descarga.png"
+                width="55px"
+                src="../src\assets\img\TRANSIT.AR.png"
                 alt=""
               />
             </i>

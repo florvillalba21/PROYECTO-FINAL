@@ -10,7 +10,7 @@ const Tarjetadenuncia = () => {
               style={{ width: "20rem", position: "relative", left: "80%" }}
             >
               <img
-                src="../src\assets\img\foto1.jpeg"
+                src="../src\assets\img\inspector2.png"
                 className="card-img-top"
                 alt="..."
               />

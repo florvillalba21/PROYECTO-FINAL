@@ -19,6 +19,12 @@ body {
   font-size: var(--normal-font-size);
   background-color: rgb(255, 246, 230);
 }
+
+div#root,
+div.container.card-group {
+  background-color: rgb(250, 243, 234);
+}
+
 .side-navbar {
   width: 180px;
   height: 100%;
@@ -46,7 +52,7 @@ body {
   transition: width 0.4s linear;
 }
 #menu-btn {
-  background-color: #00b7bf;
+  background-color: #A6A6A6;
   color: #fff;
   margin-left: -62px;
 }
