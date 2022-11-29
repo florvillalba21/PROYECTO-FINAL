@@ -1,6 +1,33 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useState } from "react";
 
 const Tarjetadenuncia = () => {
+  const [data={}, setData] = useState({})
+  const selMarca = useRef();
+  const inpDom = useRef();
+  const inpColor = useRef();
+  const textDet = useRef();
+  const enviarDenuncia = async (e) => {
+    e.preventDefault()
+    try {
+      const url = "http://localhost:4000/nuevaDenuncia";
+      const data = {
+        matricula: inpDom.current.value,
+        marca: selMarca.current.value,
+        color: inpColor.current.value,
+        detalles: textDet.current.value
+
+      };
+
+      const res = await axios.post(url, data);
+      setData(res.data);
+      console.log(res.data)
+      
+      
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
+  };
   return (
       <div className="card-mb3">
         <div className="row g-0">
@@ -58,7 +85,7 @@ const Tarjetadenuncia = () => {
                           <label htmlFor="formFile" className="form-label">
                             Indique la marca del vehiculo:
                           </label>
-                          <select
+                          <select ref={selMarca}
                             className="form-select form-select mx-4 mb-5"
                             aria-label="Default select example"
                             style={{
@@ -83,10 +110,11 @@ const Tarjetadenuncia = () => {
                             htmlFor="exampleFormControlInput1"
                             className="form-label"
                           >
-                            Ingrese el domoninio del vehiculo:
+                            Ingrese el dominio del vehiculo:
                           </label>
                           <input
-                            type="email"
+                          ref={inpDom}
+                            type="text"
                             className="form-control"
                             id="exampleFormControlInput1"
                             placeholder="ABC-123 | AB-123-CD"
@@ -99,7 +127,7 @@ const Tarjetadenuncia = () => {
                           >
                             Indique el color del vehiculo:
                           </label>
-                          <input
+                          <input ref={inpColor}
                             type="color"
                             className="form-control form-control-color"
                             id="exampleColorInput"
@@ -115,7 +143,7 @@ const Tarjetadenuncia = () => {
                             identificación del vehículo. Especificar sí
                             ocurrieron otras infracciones.
                           </label>
-                          <textarea
+                          <textarea ref={textDet}
                             className="form-control"
                             id="exampleFormControlTextarea1"
                             rows="3"
@@ -129,7 +157,8 @@ const Tarjetadenuncia = () => {
                           >
                             Cerrar
                           </button>
-                          <button type="button" className="btn btn-success">
+                          <button onClick={enviarDenuncia} type="button" className="btn btn-success"
+                           data-bs-dismiss="modal">
                             Enviar
                           </button>
                         </div>

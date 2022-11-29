@@ -32,4 +32,17 @@ ctrlCar.postCarData = async (req, res) => {
     });
   }
 };
+
+ctrlCar.postDenuncia = async(req, res)=>{
+  const {matricula, marca, color, detalles} = req.body;
+
+  const car = await cars.findOne({matricula: matricula})
+
+  if(!car){
+    return res.json({msg: "no existe el vehiculo"})
+  }
+
+  
+
+}
 module.exports = ctrlCar;

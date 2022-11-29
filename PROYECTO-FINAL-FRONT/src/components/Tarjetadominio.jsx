@@ -4,9 +4,7 @@ import axios from "axios";
 const Tarjetadominio = () => {
   const inpDom = useRef();
   const [data = {}, setData] = useState({});
-
-  const dataDom = async (e) => {
-    
+  const dataDom = async () => {
     try {
       const url = "http://localhost:4000/buscarDom";
 

@@ -11,4 +11,6 @@ router.post("/nuevoDom",[
     .withMessage("campo invalido")
 ],postCarData);
 
+router.post("/nuevaDenuncia")
+
 module.exports = router;
