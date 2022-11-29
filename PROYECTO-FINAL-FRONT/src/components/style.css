@@ -31,7 +31,7 @@ div.container.card-group {
   position: fixed;
   margin-left: -300px;
   background-color: #b73258;
-  transition: 0.8s;
+  transition: 0.5s;
 }
 .nav-link:active,
 .nav-link:focus,
