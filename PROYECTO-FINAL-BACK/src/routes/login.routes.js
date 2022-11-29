@@ -1,7 +1,7 @@
 const { check } = require("express-validator");
 const { postAdmin, getAdmin } = require("../controllers/login.controller");
 const validarCampos = require("../middlewares/validate-fields");
-const validateUsername = require("../middlewares/validateUsername");
+const validateCredencial = require("../middlewares/validateCredencial");
 const router = require("express").Router();
 
 router.post(

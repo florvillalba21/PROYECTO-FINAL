@@ -24,9 +24,7 @@ const NavAdmin = ({text}) => {
     }
   };
 
-  useEffect(() => {
-    console.log(nav);
-  });
+
   return (
     <>
       <div className={nav} id="sidebar">

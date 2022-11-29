@@ -10,7 +10,6 @@ export const HomeAdmin = () => {
     <>
       <NavAdmin text={"Bienvenido :)"}/>
       <div className="container card-group" style={{padding: "30px", paddingLeft: "250px"}}>
-        <div>{token}</div>
         
         <Tarjetadenuncia />
         <Tarjetadominio/>

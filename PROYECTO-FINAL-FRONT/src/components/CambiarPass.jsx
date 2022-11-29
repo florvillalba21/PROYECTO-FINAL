@@ -1,6 +1,28 @@
 import React from 'react'
+import axios from 'axios'
+import { useRef } from 'react'
 
 const CambiarPw = () => {
+    const inpPassActual = useRef();
+    const inpPassNueva = useRef();
+    const inpPassRep  = useRef();
+
+    const CambiarPass = async()=>{
+        const url = "http://localhost:4000/cambiarpass";
+        const data = {
+          passActual : inpPassActual.current.value,
+          passNueva : inpPassNueva.current.value,
+          passRep : inpPassRep.current.value,
+        };
+        try {
+          const res = await axios.put(url, data);
+          const info = res.data;
+        } catch (error) {
+          console.error("There was an error!", error);
+        }
+      };
+     
+    
     return (
         <>
         <div style={{ width: "18rem", position: "relative", left: "15%" }}>
@@ -16,16 +38,19 @@ const CambiarPw = () => {
                         </div>
                         <div className="modal-body">
                             <div className="mb-3">
-                                <label htmlFor="exampleInputPassword1" className="form-label">Ingrese su nueva contraseña:</label>
+                                <label htmlFor="exampleInputPassword1" className="form-label">Ingrese su contraseña actual:</label>
                                 <input type="password" className="form-control" id="Password1"/>
                                 <br/>
-                                <label for="exampleInputPassword1" className="form-label">Repita la contraseña:</label>
+                                <label for="exampleInputPassword1" className="form-label">Ingrese la contraseña nueva:</label>
+                                <input type="password" className="form-control" id="Password2"/>
+                                <br />
+                                <label for="exampleInputPassword1" className="form-label">Repita la nueva contraseña:</label>
                                 <input type="password" className="form-control" id="Password2"/>
                             </div>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" className="btn btn-success">Aceptar</button>
+                            <button onClick={CambiarPass} type="button" className="btn btn-success">Aceptar</button>
                         </div>
                     </div>
                 </div>

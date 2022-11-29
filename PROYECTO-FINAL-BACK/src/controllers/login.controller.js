@@ -1,33 +1,33 @@
-const Admin = require('../models/admins.model')
-const generateT = require('../helpers/generateJWT');
-const bcrypt = require('bcrypt')
-const ctrlAdmin = {}
+const Admin = require("../models/admins.model");
+const generateT = require("../helpers/generateJWT");
+const bcrypt = require("bcrypt");
+const ctrlAdmin = {};
 
+ctrlAdmin.postAdmin = async (req, res) => {
+  const { nombre, apellido, credencial, password: passRecibida } = req.body;
+  const passEncriptada = bcrypt.hashSync(passRecibida, 10);
 
-ctrlAdmin.postAdmin = async (req, res)=> {
-    const {credencial, password: passRecibida} = req.body
-    const passEncriptada = bcrypt.hashSync(passRecibida, 10)
+  const newAdmin = new Admin({
+    nombre,
+    apellido,
+    credencial,
+    password: passEncriptada,
+  });
 
-    const newAdmin = new Admin({
-        credencial,
-        password : passEncriptada
-    });
+  const admin = await newAdmin.save();
 
-    const admin = await newAdmin.save()
+  return res.json({
+    msg: "usuario cargado correctamente",
+    admin,
+  });
+};
 
-    return res.json({
-        msg: "usuario cargado correctamente",
-        admin
-    })
-
-}
-
-ctrlAdmin.getAdmin = async(req, res) =>{
-    const {credencial, password } = req.body;
+ctrlAdmin.getAdmin = async (req, res) => {
+  const { nombre, apellido, credencial, password } = req.body;
 
   try {
     const admin = await Admin.findOne({ credencial });
-    console.log(admin)
+    console.log(admin);
     if (!admin) {
       return res.status(400).json({
         ok: false,
@@ -53,11 +53,40 @@ ctrlAdmin.getAdmin = async(req, res) =>{
 
     const token = await generateT({ uid: admin._id });
     return res.json({ token });
-    
-
   } catch (error) {
-    console.log(error)
-    return res.json({ msg: 'Error al iniciar sesión' });
+    console.log(error);
+    return res.json({ msg: "Error al iniciar sesión" });
+  }
+};
+
+ctrlAdmin.putAdmin = async (req, res) => {
+  const userId = req.user;
+  const { passActual, passNueva, passRep } = req.body;
+
+  try {
+    // const admin = await Admin.findOne({ _id });
+    // if (!admin) {
+    //   return res.status(400).json({
+    //     ok: false,
+    //     msg: "ha ocurrido un error fatal :o" - "admin inexistente",
+    //   });
+    // }
+
+    if(passNueva != passRep){
+      return res.status(400).json({
+        ok: false,
+        msg: "ha ocurrido un error fatal :o" - "las contraseñas no son iguales",
+      });
+    }
+    const passUpdate = await Admin.findByIdAndUpdate(userId, passNueva, {new:true} )
+
+    return res.json({
+      msg: "Usuario actualizado :)",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      msg: "no se ha podido actualizar :c",
+    });
   }
 };
 
