@@ -1,20 +1,44 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useRef } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export const Register = () => {
+  const navigate = useNavigate()
+  const divSucces = "alert alert-success alert-dismissible fade show"
+  const divDanger = "alert alert-danger alert-dismissible fade show"
+
+  const [logg= false, setLogg] = useState()
+  const [divAlert, setDivAlert] = useState("")
+  const [text="", setText] = useState()
+
+  const inpNombre = useRef();
+  const inpApellido = useRef();
+  const inpCredencial = useRef();
+  const inpPassword = useRef();
+
+  
   const registrar = async (e) => {
     e.preventDefault();
-    const credencial = document.getElementById("credencial").value;
-    const password = document.getElementById("password").value;
     const url = "http://localhost:4000/register";
     const data = {
-      credencial: credencial,
-      password: password,
+      nombre: inpNombre.current.value,
+      apellido: inpApellido.current.value ,
+      credencial: inpCredencial.current.value,
+      password: inpPassword.current.value,
     };
 
     try {
       const res = await axios.post(url, data);
-      console.log(res.data);
+      if(res.data.ok ==true){
+        setLogg(true)
+        setDivAlert(divSucces)
+        setText("Usted se ha registrado")
+
+      }else{
+        setDivAlert(divDanger)
+        setText("Ha ocurrido un error, inténtelo más tarde.")
+      }
     } catch (error) {
       console.log(error);
     }
@@ -43,12 +67,35 @@ export const Register = () => {
                       </div>
 
                       <h5 className="fw-normal mb-3 pb-3">Ingresa tu cuenta</h5>
-
+                      <div className="form-outline mb-4">
+                        <input
+                          type="text"
+                          id="nombre"
+                          className="form-control form-control-lg"
+                          ref={inpNombre}
+                        />
+                        <label className="form-label" htmlFor="form2Example17">
+                          Nombre(s):
+                        </label>
+                      </div>
                       <div className="form-outline mb-4">
                         <input
                           type="text"
                           id="credencial"
                           className="form-control form-control-lg"
+                          ref={inpApellido}
+                        />
+                        <label className="form-label" htmlFor="form2Example17">
+                          Apellido:
+                        </label>
+                      </div>
+
+                      <div className="form-outline mb-4">
+                        <input
+                          type="number"
+                          id="credencial"
+                          className="form-control form-control-lg"
+                          ref={inpCredencial}
                         />
                         <label className="form-label" htmlFor="form2Example17">
                           Número de credencial
@@ -60,6 +107,7 @@ export const Register = () => {
                           type="password"
                           id="password"
                           className="form-control form-control-lg"
+                          ref={inpPassword}
                         />
                         <label className="form-label" htmlFor="form2Example27">
                           Contraseña
@@ -74,6 +122,9 @@ export const Register = () => {
                         >
                           Registrarse
                         </button>
+                      </div>
+                      <div className={divAlert}>
+                        <p>{text}</p>
                       </div>
 
                       <Link to="#!" className="small text-muted">

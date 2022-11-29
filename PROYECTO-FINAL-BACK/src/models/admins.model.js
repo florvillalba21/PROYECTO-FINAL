@@ -10,7 +10,7 @@ const adminSchema = new Schema({
         required: true
     },
     credencial: {
-        type: String,
+        type: Number,
         required: true
     },
     password: {

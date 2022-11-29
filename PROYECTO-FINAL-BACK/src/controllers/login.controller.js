@@ -5,6 +5,15 @@ const ctrlAdmin = {};
 
 ctrlAdmin.postAdmin = async (req, res) => {
   const { nombre, apellido, credencial, password: passRecibida } = req.body;
+
+  const existAdmin = await Admin.findOne({credencial: credencial})
+  if(existAdmin){
+    return res.json({
+      ok: false,
+      msg: "administrador existente"
+    })
+  }
+
   const passEncriptada = bcrypt.hashSync(passRecibida, 10);
 
   const newAdmin = new Admin({
@@ -17,6 +26,7 @@ ctrlAdmin.postAdmin = async (req, res) => {
   const admin = await newAdmin.save();
 
   return res.json({
+    ok: true,
     msg: "usuario cargado correctamente",
     admin,
   });

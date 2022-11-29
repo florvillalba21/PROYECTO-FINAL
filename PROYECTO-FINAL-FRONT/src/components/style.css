@@ -82,7 +82,7 @@ div.container.card-group {
 
 .searchbar:hover > .search_input {
   padding: 20px;
-  width: 50px;
+  width: 500px;
   caret-color: red;
   
 }
