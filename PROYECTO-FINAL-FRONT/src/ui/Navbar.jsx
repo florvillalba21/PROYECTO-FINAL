@@ -2,7 +2,18 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-dark navbar-expand-lg" style={{backgroundColor: "#b73258"}}>
+    <>
+    
+    <nav className="navbar bg-light">
+      <div className="container-fluid">
+        <a className="h6">Todos los derechos reservados®</a>
+        <form className="d-flex" role="search">
+          <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
+          <button className="btn btn-success">Buscar</button>
+        </form>
+      </div>
+    </nav>
+    <nav className="navbar navbar-dark navbar-expand-lg" style={{backgroundColor: "black"}}>
       <div className="container-fluid">
         <Link className="navbar-brand" href="#">
           Bienvenido
@@ -52,5 +63,6 @@ export const Navbar = () => {
         </div>
       </div>
     </nav>
+    </>
   );
 };

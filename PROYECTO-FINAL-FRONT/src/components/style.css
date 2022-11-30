@@ -1,28 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Mitr&display=swap');
 :root {
-  --first-color: #5bb5b0;
   --first-color-light: #000000;
   --white-color: #f7f6fb;
   --body-font: "Mitr";
   --normal-font-size: 100%;
 }
-li.nav-link {
-  color: white;
-}
 p.h1 {
-  color: #ffea00;
+  color: #ffffff;
 }
 
-body {
+div#root {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  background-color: rgb(255, 246, 230);
-}
-
-div#root,
-div.container.card-group {
-  background-color: rgb(250, 243, 234);
+  background-color: "";
 }
 
 .side-navbar {
@@ -30,7 +20,7 @@ div.container.card-group {
   height: 100%;
   position: fixed;
   margin-left: -300px;
-  background-color: #b73258;
+  background-color: #0e1c2b;
   transition: 0.5s;
 }
 .nav-link:active,
@@ -39,7 +29,7 @@ div.container.card-group {
   background-color: #ffffff26;
 }
 .my-container {
-  transition: 0.8s;
+  transition: 0.5s;
 }
 .active-nav {
   margin-left: 0;
@@ -52,23 +42,17 @@ div.container.card-group {
   transition: width 0.4s linear;
 }
 #menu-btn {
-  background-color: #A6A6A6;
+  background-color: #1c232b;
   color: #fff;
   margin-left: -62px;
-}
-.searchbar {
-  margin-bottom: 100px;
-  margin-top: 100xp;
-  height: 60px;
-  background-color: #353b48;
-  border-radius: 30px;
-  padding: 0 10px;
 }
 
 .h-100{
   margin-top: 100px;
 }
-
+.h6 {
+  color: #000000;
+}
 .search_input {
   color: white;
   border: 0;
@@ -99,6 +83,6 @@ div.container.card-group {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color: white;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }

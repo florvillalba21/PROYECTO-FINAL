@@ -29,24 +29,31 @@ export const BuscadorDom = () => {
       <div
         className="card text-center"
         style={{
+          backgroundColor: "",
           width: "50%",
           margin: "auto",
           marginTop: "30px",
           marginBottom: "30px",
+          borderColor: "grey",
+          borderWidth: "2px"
         }}
       >
-        <div className="card-header">Transit.Ar</div>
+        <div className="card-header">
+        <div className="text-center">
+        <img src="/public/img/TRANSIT-nb.png" style={{width: "200px"}} />
+      </div>
+        </div>
         <div className="card-body">
           <h5 className="card-title">
-            Ingresa el dominio que deseas verificar
+            Ingresá el dominio que deseas verificar:
           </h5>
           <input type="text" className="form-control" ref={inpDom} />
 
           <Link
             onClick={dataDom}
             to=""
-            className="btn btn-primary"
-            style={{ marginTop: "5px" }}
+            className="btn btn-success"
+            style={{ marginTop: "15px" }}
           >
             Consultar matrícula
           </Link>

@@ -34,7 +34,11 @@ const Tarjetadenuncia = () => {
           <div className="col-md-4">
             <div
               className="card"
-              style={{ width: "20rem", position: "relative", left: "80%" }}
+              style={{ width: "20rem",
+              position: "relative", 
+              left: "80%",
+              borderColor: "grey",
+              borderWidth: "2px" }}
             >
               <img
                 src="../src\assets\img\inspector2.png"
