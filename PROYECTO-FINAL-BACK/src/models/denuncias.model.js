@@ -2,7 +2,7 @@ const {model, Schema} = require('mongoose')
 
 const denunciasSchema = new Schema({
     matricula: {
-        type: Number,
+        type: String,
         required: true
     },
     marca: {
@@ -16,5 +16,11 @@ const denunciasSchema = new Schema({
     detalles: {
         type: String,
         required: true
+    }, 
+    fecha : {
+        type: String,
+        required: true
     }
 })
+
+module.exports = model("Denuncias",denunciasSchema);

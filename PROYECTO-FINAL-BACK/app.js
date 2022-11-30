@@ -20,6 +20,7 @@ app.use(express.json());
 
 app.use(require('./src/routes/login.routes'))
 app.use(require('./src/routes/domainData.routes'))
+app.use(require('./src/routes/denuncias.routes'))
 
 
 

@@ -11,7 +11,7 @@ router.post(
       .not()
       .isEmpty()
       .isString()
-      .withMessage("campo invalido")
+      .withMessage("campo invalido"),
   ],
   loginAdmin
 );

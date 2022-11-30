@@ -2,9 +2,7 @@ import axios from "axios";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { AppRouter } from "../routers/AppRoutes";
-import { App } from "../App";
+
 
 export const Login = () => {
   const navigate = useNavigate();
