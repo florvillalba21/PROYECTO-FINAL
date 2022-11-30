@@ -39,13 +39,12 @@ export const BuscadorDom = () => {
           margin: "auto",
           marginTop: "30px",
           marginBottom: "30px",
-          borderColor: "grey",
-          borderWidth: "2px"
+          borderColor: "rgb(175, 175, 175)",
+          borderWidth: "1px"
         }}
       >
         <div className="card-header " style={{backgroundColor: "white"}}>
         <div className="text-center">
-        <img src="/public/img/TRANSIT-nb.png" style={{width: "200px"}} />
       </div>
         </div>
         <div className="card-body">
