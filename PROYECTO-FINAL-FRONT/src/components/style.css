@@ -14,6 +14,9 @@ div#root {
   font-size: var(--normal-font-size);
   background-color: "";
 }
+input.form-control {
+  border-color: grey;
+}
 
 .side-navbar {
   width: 180px;
@@ -34,7 +37,9 @@ div#root {
 .active-nav {
   margin-left: 0;
 }
-/* for main section */
+div.card-header{
+  background-color: #b0b0b0
+}
 .active-cont {
   margin-left: 180px;
   caret-color: transparent;
@@ -50,9 +55,7 @@ div#root {
 .h-100{
   margin-top: 100px;
 }
-.h6 {
-  color: #000000;
-}
+
 .search_input {
   color: white;
   border: 0;
