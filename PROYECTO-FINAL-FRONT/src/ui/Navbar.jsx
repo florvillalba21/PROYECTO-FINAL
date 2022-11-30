@@ -6,7 +6,7 @@ export const Navbar = () => {
     
     <nav className="navbar bg-light">
       <div className="container-fluid">
-        <a className="h6">Todos los derechos reservados®</a>
+        <h8 className="h6">Todos los derechos reservados®</h8>
         <form className="d-flex" role="search">
           <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
           <button className="btn btn-success">Buscar</button>

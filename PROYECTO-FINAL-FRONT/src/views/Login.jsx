@@ -1,31 +1,36 @@
 import axios from "axios";
 import { useRef } from "react";
-import { Link, useNavigate} from "react-router-dom";
-import {App} from "./../App"
+import { Link, useNavigate } from "react-router-dom";
+import { App } from "./../App";
 import { AuthContext, ProviderAuth } from "../context/AuthContext";
 import { HomeAdmin } from "./HomeAdmin";
+import { useState } from "react";
+import { useContext } from "react";
 
 export const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const inpCredencial = useRef();
   const inpPassword = useRef();
+  const tokenC = useContext(AuthContext)
+  const [token, setToken] = useState({});
   const loguear = async (e) => {
     e.preventDefault();
 
     const url = "http://localhost:4000/login";
     const data = {
       credencial: inpCredencial.current.value,
-      password: inpPassword.current.value
+      password: inpPassword.current.value,
     };
     try {
       const res = await axios.post(url, data);
-      const token = res.data;
-     
-      sessionStorage.setItem("token", token)
-      if(token){
-        navigate('/homeAdmin')
+      const tokenRes = res.data.token;
+      setToken(tokenRes);
+
+      // sessionStorage.setItem("token", token)
+      if (tokenC) {
+      
+        navigate("/homeAdmin");
       }
-     
     } catch (error) {
       console.error("There was an error!", error);
     }

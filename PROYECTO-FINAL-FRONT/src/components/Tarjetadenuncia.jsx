@@ -99,7 +99,7 @@ const Tarjetadenuncia = () => {
                             }}
                             name="categoria"
                           >
-                            <option selected>Selecciona una opción.</option>
+                            <option defaultValue="0">Selecciona una opción.</option>
                             <option value="1">Alfa Romeo</option>
                             <option value="2">Audi</option>
                             <option value="3">BMW</option>

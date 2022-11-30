@@ -7,5 +7,5 @@ export const PrivateRoutes = ({children})=>{
     console.log(token)
 
     return token
-    ?<Navigate to='/login'/> : children; 
+    ?<Navigate to='/'/> : children; 
 }

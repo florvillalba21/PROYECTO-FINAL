@@ -1,33 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavAdmin = ({text}) => {
-  const classNav =
-    "side-navbar active-nav d-flex justify-content-between flex-wrap flex-column";
-  const classNavIn =
-    "side-navbar inactive-nav d-flex justify-content-between flex-wrap flex-column";
+  const navigate = useNavigate()
 
-  const classBtn = "my-container active-cont";
-  const classBtnIn = "my-container inactive-cont";
-  const [nav, setNav] = useState(classNav);
-  const [btn, setBtn] = useState(classBtn);
-
-  const navAction = (e) => {
-    e.preventDefault();
-    if (nav == classNav && btn == classBtn) {
-      setNav(classNavIn);
-      setBtn(classBtnIn);
-    } else {
-      setNav(classNav);
-      setBtn(classBtn);
-    }
-  };
-
+  const logout = ()=>{
+    sessionStorage.removeItem('token');
+    navigate("/")
+  }
 
   return (
     <>
-      <div className={nav} id="sidebar">
+      <div className="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column"id="sidebar">
         <ul className="nav flex-column text-white w-100">
           <Link to="/homeAdmin" className="nav-link h3 text-white my-2">
             <img src="/public/img/TRANSIT-nb.png" width="100%" />{" "}
@@ -47,12 +31,12 @@ const NavAdmin = ({text}) => {
           </Link>
         </ul>
         <span className="nav-link h4 w-100">
-          <Link to="/login">
-            <i className="bi bi-box-arrow-left px-2 text-white"></i>
-          </Link>
+          
+            <button onClick={logout} className="bi bi-box-arrow-left px-2 text-white" style={{backgroundColor: "#0e1c2b"}}></button>
+          
         </span>
       </div>
-      <div className={btn}>
+      <div className="my-container active-cont">
         <nav className="navbar navbar-dark bg-dark px-5">
           <div>
             <center><p className="h1">{text}</p></center>

@@ -3,23 +3,34 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Tarjetadominio = () => {
-  const token= sessionStorage.getItem('token')
-  const navigate= useNavigate()
+  const token = sessionStorage.getItem("token");
+  const navigate = useNavigate();
   const inpDom = useRef();
-  const [data = {}, setData] = useState({});
-  
+  const [div = " fade hidde", setDiv] = useState();
+  const [data = [], setData] = useState();
+  const [res = "", setRes] = useState();
+
   const dataDom = async () => {
     try {
-      if(!token){
-        navigate('/login')
+      if (!token) {
+        navigate("/");
       }
 
       const url = "http://localhost:4000/buscarDom";
       const res = await axios.get(`${url}/${inpDom.current.value}`);
-      if(res.data != false){
-        setData(res.data);
+      const infoRes = res.data;
+      const infoList = infoRes;
+
+
+      if (data.carnet != true || data.cedula != true || data.seguro != true) {
+        setDiv("fade show");
+        setRes(
+          "Este vehículo no está en condiciones para transportar a pasajeros"
+        );
       }
-      
+
+      setData(infoList);
+      setRes("Este vehículo está en regla.");
       
     } catch (error) {
       console.error("There was an error!", error);
@@ -31,11 +42,13 @@ const Tarjetadominio = () => {
         <div className="col ">
           <div
             className="card"
-            style={{ width: "20rem", 
-            position: "relative",
-            left: "80%",
-            borderColor: "grey",
-            borderWidth: "2px" }}
+            style={{
+              width: "20rem",
+              position: "relative",
+              left: "80%",
+              borderColor: "grey",
+              borderWidth: "2px",
+            }}
           >
             <img
               src="../src\assets\img\inspector.png"
@@ -58,9 +71,7 @@ const Tarjetadominio = () => {
                 >
                   Verificar
                 </button>
-                <div>
-
-                </div>
+                <div></div>
                 <div
                   className="modal fade"
                   id="dominio"
@@ -95,17 +106,36 @@ const Tarjetadominio = () => {
                             Ingrese el domoninio del vehiculo:
                           </label>
                           <input
-                            type="number"
+                            type="text"
                             className="form-control"
                             id="exampleFormControlInput1"
                             placeholder="ABC-123 | AB-123-CD"
                             ref={inpDom}
                           />
                         </div>
-                        <button onClick={dataDom} type="button" className="btn btn-success"
-                         data-bs-dismiss="modal">
-                          Verificar
-                        </button>
+                        <div className={div}>
+                          <div
+                            className="card text-center"
+                            style={{
+                              width: "80%",
+                              margin: "auto",
+                              marginTop: "30px",
+                              marginBottom: "30px",
+                            }}
+                          >
+                            <div className="card-header">
+                              Resultado de tu búsqueda
+                            </div>
+                            <div className="card-body">
+                              <p>{res}</p>
+                              <ul className="list-group">
+                              <li className="list-group" >Dominio: {data.matricula}</li>
+                              <li className="list-group" >Titular: {data.titular}</li>
+
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       <div className="modal-footer">
                         <button
@@ -114,6 +144,13 @@ const Tarjetadominio = () => {
                           data-bs-dismiss="modal"
                         >
                           Cerrar
+                        </button>
+                        <button
+                          onClick={dataDom}
+                          type="button"
+                          className="btn btn-success"
+                        >
+                          Verificar
                         </button>
                       </div>
                     </div>

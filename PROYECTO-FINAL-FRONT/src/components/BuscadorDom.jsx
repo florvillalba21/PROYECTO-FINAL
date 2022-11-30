@@ -8,6 +8,7 @@ export const BuscadorDom = () => {
   const inpDom = useRef();
   const [data = {}, setData] = useState({});
   const [div= " fade hidde", setDiv] = useState()
+  const [res="", setRes] = useState()
 
   const dataDom = async (e) => {
     e.preventDefault();
@@ -15,11 +16,15 @@ export const BuscadorDom = () => {
       const url = "http://localhost:4000/buscarDom";
 
       const res = await axios.get(`${url}/${inpDom.current.value}`);
-      console.log(data);
-      if(res){
+      const infoRes = res.data;
+
+      if(data.carnet !=true || data.cedula != true || data.seguro != true ){
         setDiv("fade show")
+        setRes("Este vehículo no está en condiciones para transportar a pasajeros")
       }
-      setData(res.data);
+      
+      setData(infoRes);
+      setRes("Este vehículo está en regla.")
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -38,7 +43,7 @@ export const BuscadorDom = () => {
           borderWidth: "2px"
         }}
       >
-        <div className="card-header">
+        <div className="card-header " style={{backgroundColor: "white"}}>
         <div className="text-center">
         <img src="/public/img/TRANSIT-nb.png" style={{width: "200px"}} />
       </div>
@@ -70,7 +75,9 @@ export const BuscadorDom = () => {
           }}
         >
           <div className="card-header">Resultado de tu búsqueda</div>
-          <div className="card-body" key={data._id}>{data.matricula}</div>
+          <div className="card-body">
+            <p>{res}</p>
+          </div>
         </div>
       </div>
     </div>
