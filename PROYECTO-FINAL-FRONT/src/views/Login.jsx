@@ -1,17 +1,18 @@
 import axios from "axios";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { App } from "./../App";
-import { AuthContext, ProviderAuth } from "../context/AuthContext";
-import { HomeAdmin } from "./HomeAdmin";
 import { useState } from "react";
-import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { AppRouter } from "../routers/AppRoutes";
+import { App } from "../App";
 
 export const Login = () => {
   const navigate = useNavigate();
+  const divDanger = "alert alert-danger alert-dismissible fade show"
+  const [divAlert, setDivAlert] = useState("")
+  const [text="", setText] = useState()
   const inpCredencial = useRef();
   const inpPassword = useRef();
-  const tokenC = useContext(AuthContext)
   const [token, setToken] = useState({});
   const loguear = async (e) => {
     e.preventDefault();
@@ -23,19 +24,19 @@ export const Login = () => {
     };
     try {
       const res = await axios.post(url, data);
-      const tokenRes = res.data.token;
-      setToken(tokenRes);
 
-      // sessionStorage.setItem("token", token)
-      if (tokenC) {
-      
+      if (res.data.ok == true) {
+        const tokenRes = res.data.token;
+        setToken(tokenRes);
+        sessionStorage.setItem("token", tokenRes);
         navigate("/homeAdmin");
       }
     } catch (error) {
       console.error("There was an error!", error);
+      setDivAlert(divDanger);
+      setText("Ha ocurrido un error, inténtelo más tarde.");
     }
   };
-
   return (
     <>
       <div className="container py-5 h-100">
@@ -62,7 +63,7 @@ export const Login = () => {
 
                       <div className="form-outline mb-4">
                         <input
-                          type="text"
+                          type="number"
                           id="credencial"
                           className="form-control form-control-lg"
                           ref={inpCredencial}
@@ -92,6 +93,9 @@ export const Login = () => {
                         >
                           Iniciar Sesión
                         </button>
+                      </div>
+                      <div className={divAlert}>
+                        <p>{text}</p>
                       </div>
 
                       <Link className="small text-muted" to="#!">
