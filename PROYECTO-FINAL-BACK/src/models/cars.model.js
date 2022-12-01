@@ -18,20 +18,18 @@ const carsSchema = new Schema({
         required: true
     },
     cedula: {
-        type: Boolean,
-        default: true
+        type: Boolean
     },
     carnet: {
         type: Boolean,
-        default: true
     }, 
     seguro: {
         type: Boolean,
-        default: true
+
     },
     servis: {
         type: Boolean,
-        default: true
+
     },
     
 })

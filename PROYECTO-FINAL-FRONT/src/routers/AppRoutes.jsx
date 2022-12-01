@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { App} from "../App";
+import { App } from "../App";
+import { AuthContext } from "../context/AuthContext";
 import { HomeUser } from "../views/HomeUser";
 import { Login } from "../views/Login";
 import { Register } from "../views/Register";
@@ -11,14 +12,16 @@ export const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/home" element={<HomeUser />} />
-        <Route path="/" element={<Login/>} />
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
           path="/*"
           element={
-            <PrivateRoutes>
-              <Dashboard />
-            </PrivateRoutes>
+            
+              <PrivateRoutes>
+                <Dashboard />
+              </PrivateRoutes>
+          
           }
         />
       </Routes>

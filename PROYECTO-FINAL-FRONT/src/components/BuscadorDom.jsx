@@ -7,8 +7,8 @@ import { useEffect } from "react";
 export const BuscadorDom = () => {
   const inpDom = useRef();
   const [data = {}, setData] = useState({});
-  const [div= " fade hidde", setDiv] = useState()
-  const [res="", setRes] = useState()
+  const [div = " fade hidde", setDiv] = useState();
+  const [res = "", setRes] = useState();
 
   const dataDom = async (e) => {
     e.preventDefault();
@@ -18,13 +18,15 @@ export const BuscadorDom = () => {
       const res = await axios.get(`${url}/${inpDom.current.value}`);
       const infoRes = res.data;
 
-      if(data.carnet !=true || data.cedula != true || data.seguro != true ){
-        setDiv("fade show")
-        setRes("Este vehículo no está en condiciones para transportar a pasajeros")
+      if (data.carnet != true || data.cedula != true || data.seguro != true) {
+        setDiv("fade show");
+        setRes(
+          "Este vehículo no está en condiciones para transportar a pasajeros"
+        );
+      } else {
+        setData(infoRes);
+        setRes("Este vehículo está en regla.");
       }
-      
-      setData(infoRes);
-      setRes("Este vehículo está en regla.")
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -40,12 +42,11 @@ export const BuscadorDom = () => {
           marginTop: "30px",
           marginBottom: "30px",
           borderColor: "rgb(175, 175, 175)",
-          borderWidth: "1px"
+          borderWidth: "1px",
         }}
       >
-        <div className="card-header " style={{backgroundColor: "white"}}>
-        <div className="text-center">
-      </div>
+        <div className="card-header " style={{ backgroundColor: "white" }}>
+          <div className="text-center"></div>
         </div>
         <div className="card-body">
           <h5 className="card-title">

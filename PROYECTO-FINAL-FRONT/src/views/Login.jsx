@@ -2,6 +2,8 @@ import axios from "axios";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { PrivateRoutes } from "../routers/PrivateRoutes";
 
 
 export const Login = () => {
@@ -27,6 +29,9 @@ export const Login = () => {
         const tokenRes = res.data.token;
         setToken(tokenRes);
         sessionStorage.setItem("token", tokenRes);
+        <AuthContext.Provider value={{tokenRes}}>
+          <PrivateRoutes/>
+        </AuthContext.Provider>
         navigate("/homeAdmin");
       }
     } catch (error) {
@@ -44,8 +49,9 @@ export const Login = () => {
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                    src="/img/inicio.png"
-                    alt="login form"
+                  style={{width: "80%", marginTop: "30%", marginLeft: "5%"}}
+                    src="/img/TRANSIT-nb.png"
+                    alt=""
                     className="img-fluid"
                   />
                 </div>

@@ -22,14 +22,18 @@ ctrlCar.getCarData = async (req, res) => {
 
 
 ctrlCar.postAuto = async(req, res)=>{
-  const {matricula, titular,  marca, modelo} = req.body;
+  const {matricula, titular,  marca, modelo, carnet, cedula, seguro, servis} = req.body;
   console.log(matricula)
   
   const car = new cars({
     matricula,
     titular,
     marca,
-    modelo
+    modelo,
+    carnet,
+    cedula,
+    seguro,
+    servis
   })
 
   try {

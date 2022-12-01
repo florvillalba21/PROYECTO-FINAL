@@ -91,8 +91,8 @@ export const CargarAuto = () => {
                           id=""
                           ref={inpCarnet}
                         >
-                          <option value="True">Si</option>
-                          <option value="False">No</option>
+                          <option value="true">Si</option>
+                          <option value="false">No</option>
                         </select>
                       </div>
 
@@ -106,8 +106,8 @@ export const CargarAuto = () => {
                           id=""
                           ref={inpCedula}
                         >
-                          <option value="True">Si</option>
-                          <option value="False">No</option>
+                          <option value="true">Si</option>
+                          <option value="false">No</option>
                         </select>
                       </div>
                       <div className="form-outline mb-4">
@@ -120,8 +120,8 @@ export const CargarAuto = () => {
                           id=""
                           ref={inpSeguro}
                         >
-                          <option value="True">Si</option>
-                          <option value="False">No</option>
+                          <option value="true">Si</option>
+                          <option value="false">No</option>
                         </select>
                       </div>
                       <div className="form-outline mb-4">
@@ -134,8 +134,8 @@ export const CargarAuto = () => {
                           id=""
                           ref={inpServis}
                         >
-                          <option value="True">Si</option>
-                          <option value="False">No</option>
+                          <option value="true">Si</option>
+                          <option value="false">No</option>
                         </select>
                       </div>
                       <div className="form-outline mb-4">

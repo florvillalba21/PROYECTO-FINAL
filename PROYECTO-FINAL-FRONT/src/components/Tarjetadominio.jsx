@@ -21,17 +21,16 @@ const Tarjetadominio = () => {
       const infoRes = res.data;
       const infoList = infoRes;
 
-
       if (data.carnet != true || data.cedula != true || data.seguro != true) {
         setDiv("fade show");
         setRes(
           "Este vehículo no está en condiciones para transportar a pasajeros"
         );
+        setData(infoList)
+      } else {
+        setData(infoList);
+        setRes("Este vehículo está en regla.");
       }
-
-      setData(infoList);
-      setRes("Este vehículo está en regla.");
-      
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -129,9 +128,12 @@ const Tarjetadominio = () => {
                             <div className="card-body">
                               <p>{res}</p>
                               <ul className="list-group">
-                              <li className="list-group" >Dominio: {data.matricula}</li>
-                              <li className="list-group" >Titular: {data.titular}</li>
-
+                                <li className="list-group">
+                                  Dominio: {data.matricula}
+                                </li>
+                                <li className="list-group">
+                                  Titular: {data.titular}
+                                </li>
                               </ul>
                             </div>
                           </div>

@@ -1,10 +1,13 @@
 import React from "react";
+import { AuthContext } from "./context/AuthContext";
 import { AppRouter } from "./routers/AppRoutes";
 
-export const App = ()=>{
+export const App = () => {
+  const token = sessionStorage.getItem("token");
 
-  return(
-    
-    <AppRouter/>
-  )
-}
+  return (
+   
+      <AppRouter />
+
+  );
+};
