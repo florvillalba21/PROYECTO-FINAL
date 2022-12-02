@@ -7,7 +7,7 @@ ctrlCar.getCarData = async (req, res) => {
 
   if (!carData)
     return res.json({
-      msg: "no existe este vehiculo",
+      msg: "No existe este vehiculo.",
     });
 
     try {
@@ -22,7 +22,7 @@ ctrlCar.getCarData = async (req, res) => {
 
 
 ctrlCar.postAuto = async(req, res)=>{
-  const {matricula, titular,  marca, modelo, carnet, cedula, seguro, servis} = req.body;
+  const {matricula, titular,  marca, modelo, licencia, seguro, RTO} = req.body;
   console.log(matricula)
   
   const car = new cars({
@@ -30,10 +30,9 @@ ctrlCar.postAuto = async(req, res)=>{
     titular,
     marca,
     modelo,
-    carnet,
-    cedula,
+    licencia,
     seguro,
-    servis
+    RTO
   })
 
   try {
@@ -41,7 +40,7 @@ ctrlCar.postAuto = async(req, res)=>{
     console.log(newCar)
     return res.json({
       ok: true,
-      msg: "dominio cargado correctamente",
+      msg: "Dominio cargado correctamente.",
       newCar,
     });
   } catch (error) {
