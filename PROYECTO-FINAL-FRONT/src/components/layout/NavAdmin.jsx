@@ -21,15 +21,15 @@ const NavAdmin = ({text}) => {
             <br />
           </Link>
           <Link to="/homeAdmin" className="nav-link h5 text-white my-2">
-            <i className="bi bi-house-fill"></i>
+            <i className="bi bi-house"></i>
             <span className="mx-2">Inicio</span>
           </Link>
           <Link to="/profile" className="nav-link h5 text-white my-2">
-            <i className="bi bi-person-fill"></i>
+            <i className="bi bi-person"></i>
             <span className="mx-2">Perfil</span>
           </Link>
           <Link to="/verdenuncias" className="nav-link h5 text-white my-2">
-            <i className="bi bi-person-fill"></i>
+            <i className=" bi-journal-text"></i>
             <span className="mx-2">Ver denuncias</span>
           </Link>
           <Link to="/ayuda" className="nav-link h5 text-white my-2">
