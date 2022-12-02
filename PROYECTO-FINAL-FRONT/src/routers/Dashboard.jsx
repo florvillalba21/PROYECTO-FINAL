@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { CargarAuto } from "../views/CargarAuto";
+import { CargarAuto } from "../components/CargarAuto";
 import { HomeAdmin } from "../views/HomeAdmin";
 import Profile from "../views/Profile";
 import { Denuncias } from "../views/VerDenuncias";
