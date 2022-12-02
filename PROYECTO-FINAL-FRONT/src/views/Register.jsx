@@ -4,40 +4,40 @@ import { useRef } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export const Register = () => {
-  const navigate = useNavigate()
-  const divSucces = "alert alert-success alert-dismissible fade show"
-  const divDanger = "alert alert-danger alert-dismissible fade show"
+  const navigate = useNavigate();
+  const divSucces = "alert alert-success alert-dismissible fade show";
+  const divDanger = "alert alert-danger alert-dismissible fade show";
 
-  const [logg= false, setLogg] = useState()
-  const [divAlert, setDivAlert] = useState("")
-  const [text="", setText] = useState()
+  const [logg = false, setLogg] = useState();
+  const [divAlert, setDivAlert] = useState("");
+  const [text = "", setText] = useState();
 
   const inpNombre = useRef();
   const inpApellido = useRef();
   const inpCredencial = useRef();
   const inpPassword = useRef();
+  const selRol = useRef();
 
-  
   const registrar = async (e) => {
     e.preventDefault();
     const url = "http://localhost:4000/register";
     const data = {
       nombre: inpNombre.current.value,
-      apellido: inpApellido.current.value ,
+      apellido: inpApellido.current.value,
       credencial: inpCredencial.current.value,
       password: inpPassword.current.value,
+      rol: selRol.current.value
     };
 
     try {
       const res = await axios.post(url, data);
-      if(res.data.ok ==true){
-        setLogg(true)
-        setDivAlert(divSucces)
-        setText("Usted se ha registrado")
-
-      }else{
-        setDivAlert(divDanger)
-        setText("Ha ocurrido un error, inténtelo más tarde.")
+      if (res.data.ok == true) {
+        setLogg(true);
+        setDivAlert(divSucces);
+        setText("Usted se ha registrado");
+      } else {
+        setDivAlert(divDanger);
+        setText("Ha ocurrido un error, inténtelo más tarde.");
       }
     } catch (error) {
       console.log(error);
@@ -81,7 +81,7 @@ export const Register = () => {
                       <div className="form-outline mb-4">
                         <input
                           type="text"
-                          id="credencial"
+                          id="apellido"
                           className="form-control form-control-lg"
                           ref={inpApellido}
                         />
@@ -114,6 +114,20 @@ export const Register = () => {
                         </label>
                       </div>
 
+                      <div className="form-outline mb-4">
+                        <select
+                        
+                          id="rol"
+                          className="form-control form-control-lg"
+                          ref={selRol}
+                        >
+                          <option defaultValue="Inspector">INSPECTOR</option>
+                          <option value="Admin">ADMINISTRADOR</option>
+                        </select>
+                        <label className="form-label" htmlFor="form2Example27">
+                          Seleccione su rol:
+                        </label>
+                      </div>
                       <div className="pt-1 mb-4">
                         <button
                           onClick={registrar}

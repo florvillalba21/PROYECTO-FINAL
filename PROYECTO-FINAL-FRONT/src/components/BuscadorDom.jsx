@@ -13,7 +13,7 @@ export const BuscadorDom = () => {
   const dataDom = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:4000/buscarDom";
+      const url = "http://localhost:4000/buscar";
 
       const res = await axios.get(`${url}/${inpDom.current.value}`);
       const infoRes = res.data;

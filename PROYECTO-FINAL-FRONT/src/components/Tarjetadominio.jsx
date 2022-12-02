@@ -1,10 +1,16 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const Tarjetadominio = () => {
-  const token = sessionStorage.getItem("token");
-  const navigate = useNavigate();
+  const token = useContext(AuthContext)
+  const config = {
+    Headers : {
+      Authorization : token
+    }
+  }
   const inpDom = useRef();
   const [div = " fade hidde", setDiv] = useState();
   const [data = [], setData] = useState();
@@ -12,12 +18,9 @@ const Tarjetadominio = () => {
 
   const dataDom = async () => {
     try {
-      if (!token) {
-        navigate("/");
-      }
 
       const url = "http://localhost:4000/buscarDom";
-      const res = await axios.get(`${url}/${inpDom.current.value}`);
+      const res = await axios.get(`${url}/${inpDom.current.value}`, config);
       const infoRes = res.data;
       const infoList = infoRes;
 
@@ -26,6 +29,7 @@ const Tarjetadominio = () => {
         setRes(
           "Este vehículo no está en condiciones para transportar a pasajeros"
         );
+        console.log(infoList)
         setData(infoList)
       } else {
         setData(infoList);

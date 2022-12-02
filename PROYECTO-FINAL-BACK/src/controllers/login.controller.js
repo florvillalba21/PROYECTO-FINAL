@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const ctrlAdmin = {};
 
 ctrlAdmin.postAdmin = async (req, res) => {
-  const { nombre, apellido, credencial, password: passRecibida } = req.body;
+  const { nombre, apellido, credencial, password: passRecibida, rol } = req.body;
 
   const existAdmin = await Admin.findOne({credencial: credencial})
   if(existAdmin){
@@ -21,6 +21,7 @@ ctrlAdmin.postAdmin = async (req, res) => {
     apellido,
     credencial,
     password: passEncriptada,
+    rol
   });
 
   const admin = await newAdmin.save();
@@ -61,7 +62,7 @@ ctrlAdmin.loginAdmin = async (req, res) => {
       });
     }
 
-    const token = await generateT({ credencial: admin.credencial });
+    const token = await generateT({ uid: admin._id });
     return res.json({ ok: true, token });
   } catch (error) {
     console.log(error);

@@ -4,7 +4,8 @@ const { getCarData, postDenuncia, postAuto } = require("../controllers/domainDat
 const validateJWT = require("../middlewares/validateJWT");
 
 
-router.get("/buscarDom/:id",getCarData);
+router.get("/buscarDom/:id",[validateJWT],getCarData);
+router.get("buscar/:id", getCarData);
 
 // router.post("/nuevaDenuncia",[validateJWT], postDenuncia)
 router.post("/subirAuto", postAuto)

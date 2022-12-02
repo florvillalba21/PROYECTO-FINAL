@@ -5,29 +5,21 @@ import { ListDenuncias } from "../components/Denuncias";
 import NavAdmin from "../components/layout/NavAdmin";
 
 export const Denuncias = () => {
-  const [state=[], setState] = useState();
+  const [state = [], setState] = useState();
   const url = "http://localhost:4000/denuncias";
 
-  const getDenuncias = async () => {
-    const res = await axios.get(url);
-    const listaDenuncias = res.data.denuncias;
-    try {
-      setState(listaDenuncias);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(()=>{
-    getDenuncias()
-    console.log(state)
-  }, [])
-
+  useEffect(() => {
+    axios.get(url).then((response) => {
+      setState(response.data.denuncias);
+      
+    })
+  }, []);
 
   return (
     <>
       <NavAdmin text={"Denuncias realizadas"} />
       <div
-        className="container"
+        className="container card-group"
         style={{ width: "30%", marginTop: "50px", border: "1px" }}
       >
         <ListDenuncias denuncias={state} />

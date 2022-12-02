@@ -20,6 +20,10 @@ const adminSchema = new Schema({
     estado: {
         type: Boolean,
         default: true
+    },
+    rol :{
+        type: String,
+        required: true
     }
 })
 
