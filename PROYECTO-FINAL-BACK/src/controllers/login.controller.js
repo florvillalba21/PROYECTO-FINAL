@@ -38,7 +38,7 @@ ctrlAdmin.loginAdmin = async (req, res) => {
 
   try {
     const admin = await Admin.findOne({ credencial });
-    console.log(admin);
+    console.log(admin.rol);
     if (!admin) {
       return res.status(400).json({
         ok: false,
@@ -63,7 +63,7 @@ ctrlAdmin.loginAdmin = async (req, res) => {
     }
 
     const token = await generateT({ uid: admin._id });
-    return res.json({ ok: true, token });
+    return res.json({ ok: true, token, rol: admin.rol });
   } catch (error) {
     console.log(error);
     return res.json({ msg: "Error al iniciar sesión" });

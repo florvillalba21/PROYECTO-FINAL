@@ -3,10 +3,12 @@ import { AuthContext } from "./context/AuthContext";
 import { AppRouter } from "./routers/AppRoutes";
 
 export const App = () => {
-  const token = sessionStorage.getItem("token");
+  const admin ={ 
+    rol: sessionStorage.getItem("rol"),
+    token: sessionStorage.getItem("token")}
 
   return (
-    <AuthContext.Provider value={{ token }}>
+    <AuthContext.Provider value={ admin }>
       <AppRouter />
     </AuthContext.Provider>
   );

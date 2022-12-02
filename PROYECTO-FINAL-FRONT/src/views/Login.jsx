@@ -23,10 +23,14 @@ export const Login = () => {
     };
     try {
       const res = await axios.post(url, data);
+      
 
       if (res.data.ok == true) {
+        
         const tokenRes = res.data.token;
+        const adminRol = res.data.rol;
         sessionStorage.setItem("token", tokenRes);
+        sessionStorage.setItem("rol", adminRol);
 
         navigate("/homeAdmin");
       }
