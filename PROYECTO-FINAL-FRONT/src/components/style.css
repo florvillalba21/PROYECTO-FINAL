@@ -14,7 +14,9 @@ div#root {
   font-size: var(--normal-font-size);
   background-color: "";
 }
-input.form-control {
+input.form-control,
+select.form-select,
+select.form-control {
   border-color: grey;
 }
 

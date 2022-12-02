@@ -6,10 +6,9 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 export const CargarAuto = () => {
   const inpMatricula = useRef();
   const inpTitular = useRef();
-  const inpCedula = useRef();
-  const inpCarnet = useRef();
+  const inpLicencia = useRef();
   const inpSeguro = useRef();
-  const inpServis = useRef();
+  const inpRTO = useRef();
   const inpMarca = useRef();
   const inpModelo = useRef();
 
@@ -19,10 +18,9 @@ export const CargarAuto = () => {
     const data = {
       matricula: inpMatricula.current.value,
       titular: inpTitular.current.value,
-      cedula: inpCedula.current.value,
-      carnet: inpCarnet.current.value,
+      licencia: inpLicencia.current.value,
       seguro: inpSeguro.current.value,
-      servis: inpServis.current.value,
+      RTO: inpRTO.current.value,
       marca: inpMarca.current.value,
       modelo: inpModelo.current.value,
     };
@@ -44,7 +42,7 @@ export const CargarAuto = () => {
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                    src="../public/img/inicio.png"
+                    src="/src/assets/img/carform.png"
                     alt="login form"
                     className="img-fluid"
                   />
@@ -83,28 +81,13 @@ export const CargarAuto = () => {
 
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example17">
-                          Carnet:
+                          Licencia:
                         </label>
                         <select
                           className="form-control form-control-lg"
                           name=""
                           id=""
-                          ref={inpCarnet}
-                        >
-                          <option value="true">Si</option>
-                          <option value="false">No</option>
-                        </select>
-                      </div>
-
-                      <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="form2Example27">
-                          Cedula:
-                        </label>
-                        <select
-                          className="form-control form-control-lg"
-                          name=""
-                          id=""
-                          ref={inpCedula}
+                          ref={inpLicencia}
                         >
                           <option value="true">Si</option>
                           <option value="false">No</option>
@@ -112,7 +95,7 @@ export const CargarAuto = () => {
                       </div>
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example17">
-                          Seguro:
+                          Poliza de Seguro:
                         </label>
                         <select
                           className="form-control form-control-lg"
@@ -126,13 +109,13 @@ export const CargarAuto = () => {
                       </div>
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example17">
-                          Servis del auto:
+                          Revisión Técnica Obligatoria:
                         </label>
                         <select
                           className="form-control form-control-lg"
                           name=""
                           id=""
-                          ref={inpServis}
+                          ref={inpRTO}
                         >
                           <option value="true">Si</option>
                           <option value="false">No</option>

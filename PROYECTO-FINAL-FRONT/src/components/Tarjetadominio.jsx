@@ -24,7 +24,7 @@ const Tarjetadominio = () => {
       const infoRes = res.data;
       const infoList = infoRes;
 
-      if (data.carnet != true || data.cedula != true || data.seguro != true) {
+      if (data.licencia != true || data.RTO != true || data.seguro != true) {
         setDiv("fade show");
         setRes(
           "Este vehículo no está en condiciones para transportar a pasajeros"

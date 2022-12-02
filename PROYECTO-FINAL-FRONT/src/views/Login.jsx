@@ -97,13 +97,9 @@ export const Login = () => {
                       <div className={divAlert}>
                         <p>{text}</p>
                       </div>
-
-                      <Link className="small text-muted" to="#!">
-                        ¿No recuerdas tu contraseña?
-                      </Link>
                       <Link to="#!" className="small text-muted">
-                        Terminos de uso.
-                      </Link>
+                        Terminos de uso
+                      </Link><br />
                       <Link to="#!" className="small text-muted">
                         Políticas de Privacidad
                       </Link>

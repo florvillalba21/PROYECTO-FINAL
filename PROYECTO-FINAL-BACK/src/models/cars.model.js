@@ -17,17 +17,14 @@ const carsSchema = new Schema({
         type: String,
         required: true
     },
-    cedula: {
-        type: Boolean
-    },
-    carnet: {
+    licencia: {
         type: Boolean,
     }, 
     seguro: {
         type: Boolean,
 
     },
-    servis: {
+    RTO: {
         type: Boolean,
 
     },
