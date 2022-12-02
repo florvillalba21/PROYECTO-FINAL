@@ -2,8 +2,7 @@ import axios from "axios";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { PrivateRoutes } from "../routers/PrivateRoutes";
+
 
 
 export const Login = () => {
@@ -13,7 +12,7 @@ export const Login = () => {
   const [text="", setText] = useState()
   const inpCredencial = useRef();
   const inpPassword = useRef();
-  const [token, setToken] = useState({});
+  
   const loguear = async (e) => {
     e.preventDefault();
 
@@ -27,11 +26,8 @@ export const Login = () => {
 
       if (res.data.ok == true) {
         const tokenRes = res.data.token;
-        setToken(tokenRes);
         sessionStorage.setItem("token", tokenRes);
-        <AuthContext.Provider value={{tokenRes}}>
-          <PrivateRoutes/>
-        </AuthContext.Provider>
+
         navigate("/homeAdmin");
       }
     } catch (error) {

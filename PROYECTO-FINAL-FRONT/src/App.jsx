@@ -6,8 +6,8 @@ export const App = () => {
   const token = sessionStorage.getItem("token");
 
   return (
-   
+    <AuthContext.Provider value={{ token }}>
       <AppRouter />
-
+    </AuthContext.Provider>
   );
 };
