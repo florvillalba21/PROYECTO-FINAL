@@ -53,8 +53,9 @@ export const Register = () => {
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                    src="../public/img/inicio.png"
-                    alt="login form"
+                  style={{width: "80%", marginTop: "30%", marginLeft: "5%"}}
+                    src="/img/TRANSIT-nb.png"
+                    alt=""
                     className="img-fluid"
                   />
                 </div>

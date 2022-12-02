@@ -54,7 +54,7 @@ const Tarjetadominio = () => {
             }}
           >
             <img
-              src="../src\assets\img\inspector.png"
+              src="../src\assets\img\carsecure.png"
               className="card-img-top"
               alt="..."
             />

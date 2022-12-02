@@ -43,7 +43,7 @@ const Tarjetadenuncia = () => {
             }}
           >
             <img
-              src="../src\assets\img\inspector2.png"
+              src="../src\assets\img\papeldenuncia.png"
               className="card-img-top"
               alt="..."
             />
