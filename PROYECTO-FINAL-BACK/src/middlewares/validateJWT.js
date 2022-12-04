@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const Admins = require('../models/admins.model');
 
 const validateJWT = async (req, res, next) => {
-    // let token = req.headers.authorization;
+    
 
     let token = req.headers.authorization
     console.log(token)
