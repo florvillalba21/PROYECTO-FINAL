@@ -26,7 +26,7 @@ export const Login = () => {
       
 
       if (res.data.ok == true) {
-        
+        console.log(res.data)
         const tokenRes = res.data.token;
         const adminRol = res.data.rol;
         sessionStorage.setItem("token", tokenRes);
@@ -42,7 +42,7 @@ export const Login = () => {
   };
   return (
     <>
-      <div className="container py-5 h-100">
+      <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
             <div className="card">

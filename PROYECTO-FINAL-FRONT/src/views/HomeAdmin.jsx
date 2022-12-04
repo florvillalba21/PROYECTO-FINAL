@@ -8,13 +8,15 @@ import Tarjetadominio from "../components/Tarjetadominio";
 import { AuthContext } from "../context/AuthContext";
 
 export const HomeAdmin = () => {
-  const user = useContext(AuthContext);
-
-  return (
-    <>
-      <NavAdmin text={"Bienvenido :)"} />
-      if (user.rol == "Admin"){<CargarAuto />} else if(user.rol == "Inspector")
-      {
+  const {admin} = useContext(AuthContext);
+  
+  console.log(admin.rol);
+  if (admin.rol == "ADMIN") {
+    return (<><NavAdmin text={"Bienvenido :)"} /><CargarAuto /></>);
+  } else if(admin.rol == "INSPECTOR") {
+    return (
+      <>
+        <NavAdmin text={"Bienvenido :)"} />
         <div
           className="container card-group"
           style={{ padding: "30px", paddingLeft: "250px" }}
@@ -22,7 +24,7 @@ export const HomeAdmin = () => {
           <Tarjetadenuncia />
           <Tarjetadominio />
         </div>
-      }
-    </>
-  );
+      </>
+    );
+  }
 };

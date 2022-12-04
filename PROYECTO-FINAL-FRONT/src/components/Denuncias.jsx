@@ -1,4 +1,5 @@
 import React from "react";
+import { CardDenuncia } from "./layout/CardDenuncia";
 
 export const ListDenuncias = ({ denuncias =[] }) => {
   if(!denuncias){
@@ -10,7 +11,9 @@ export const ListDenuncias = ({ denuncias =[] }) => {
         denuncias.map((denuncia, key) => {
           return (
             <div className="col" key={'denuncia' + key}>
-              <div className="card">{denuncia.matricula}</div>
+              <div className="card">
+                <CardDenuncia denuncia = {denuncia}/>
+              </div>
             </div>
           )
         })

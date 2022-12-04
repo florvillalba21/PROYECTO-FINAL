@@ -17,10 +17,11 @@ export const Denuncias = () => {
 
   return (
     <>
-      <NavAdmin text={"Denuncias realizadas"} />
+      <NavAdmin text={"Denuncias"} />
+      <p style={{marginLeft: "15%"}}>Denuncias realizadas en el último mes.</p>
       <div
         className="container card-group"
-        style={{ width: "30%", marginTop: "50px", border: "1px" }}
+        style={{ width: "70%", marginTop: "50px", border: "1px" }}
       >
         <ListDenuncias denuncias={state} />
       </div>

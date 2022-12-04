@@ -46,7 +46,7 @@ export const Register = () => {
 
   return (
     <>
-      <div className="container py-5 h-100">
+      <div className="container  h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
             <div className="card">
@@ -122,8 +122,8 @@ export const Register = () => {
                           className="form-control form-control-lg"
                           ref={selRol}
                         >
-                          <option defaultValue="Inspector">INSPECTOR</option>
-                          <option value="Admin">ADMINISTRADOR</option>
+                          <option defaultValue="INSPECTOR">INSPECTOR</option>
+                          <option value="ADMIN">ADMINISTRADOR</option>
                         </select>
                         <label className="form-label" htmlFor="form2Example27">
                           Seleccione su rol:

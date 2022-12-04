@@ -9,6 +9,7 @@ const NavAdmin = ({text}) => {
 
   const logout = ()=>{
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('rol');
     navigate("/")
   }
 

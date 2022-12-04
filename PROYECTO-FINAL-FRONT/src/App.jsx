@@ -8,7 +8,7 @@ export const App = () => {
     token: sessionStorage.getItem("token")}
 
   return (
-    <AuthContext.Provider value={ admin }>
+    <AuthContext.Provider value={ {admin} }>
       <AppRouter />
     </AuthContext.Provider>
   );
