@@ -6,9 +6,8 @@ import { AuthContext } from "../context/AuthContext";
 
 export const PrivateRoutes = ({children})=>{
     const {admin}= useContext(AuthContext)
-    const [user = admin, setAdmin] = useState()
   
 
-    return !user.token
+    return !admin.token
     ?<Navigate to='/'/> : children; 
 }

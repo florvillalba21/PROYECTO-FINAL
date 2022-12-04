@@ -31,7 +31,7 @@ export const Login = () => {
         const adminRol = res.data.rol;
         sessionStorage.setItem("token", tokenRes);
         sessionStorage.setItem("rol", adminRol);
-
+        
         navigate("/homeAdmin");
       }
     } catch (error) {
@@ -93,7 +93,7 @@ export const Login = () => {
                         <button
                           onClick={loguear}
                           className="btn btn-dark btn-lg btn-block"
-                          type="button"
+                          type="submit"
                         >
                           Iniciar Sesión
                         </button>

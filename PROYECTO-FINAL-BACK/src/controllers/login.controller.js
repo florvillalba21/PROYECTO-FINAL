@@ -63,7 +63,35 @@ ctrlAdmin.loginAdmin = async (req, res) => {
     }
 
     const token = await generateT({ uid: admin._id });
-    return res.json({ ok: true, token, rol: admin.rol });
+    return res.json({ ok: true, token, rol: admin.rol , admin});
+  } catch (error) {
+    console.log(error);
+    return res.json({ msg: "Error al iniciar sesión" });
+  }
+};
+
+
+ctrlAdmin.getAdmin = async (req, res) => {
+  
+
+  try {
+    const { admin } = req.body;
+     const resAdmin = await Admin.findOne({ credencial : admin._id});
+
+    if (!resAdmin) {
+      return res.status(400).json({
+        ok: false,
+        msg: "Ha ocurrido un error :c" - "Usuario no encontrado",
+      });
+    }
+
+    if (!resAdmin.estado) {
+      return res.status(400).json({
+        ok: false,
+        msg: "ha ocurrido un error fatal :o" - "Usuario inactivo",
+      });
+    }
+    return res.json({ ok: true, resAdmin});
   } catch (error) {
     console.log(error);
     return res.json({ msg: "Error al iniciar sesión" });

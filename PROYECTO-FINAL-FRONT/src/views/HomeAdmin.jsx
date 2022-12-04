@@ -12,11 +12,11 @@ export const HomeAdmin = () => {
   
   console.log(admin.rol);
   if (admin.rol == "ADMIN") {
-    return (<><NavAdmin text={"Bienvenido :)"} /><CargarAuto /></>);
+    return (<><NavAdmin text={"Bienvenido"} /><CargarAuto /></>);
   } else if(admin.rol == "INSPECTOR") {
     return (
       <>
-        <NavAdmin text={"Bienvenido :)"} />
+        <NavAdmin text={"Bienvenido"} />
         <div
           className="container card-group"
           style={{ padding: "30px", paddingLeft: "250px" }}

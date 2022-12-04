@@ -1,6 +1,27 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const UserProfile = () => {
+    const [user = [], setUser] = useState();
+    const {admin} = useContext(AuthContext);
+    console.log(admin.token)
+  const url = "http://localhost:4000/admins";
+  const instance = axios.create({
+    baseURL: 'http://localhost:4000',
+    timeout: 1000,
+    headers: {'Authorization': 'Bearer '+admin.token}
+  });
+
+
+  useEffect(() => {
+    instance.get("/admins").then((response) => {
+      setUser(response.data);
+      console.log(data)
+      
+    })
+  }, []);
     return (
         <>
             <div className='form' style={{ width: "18rem", position: "relative", left: "15%" }}>

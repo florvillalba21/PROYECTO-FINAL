@@ -6,11 +6,12 @@ const validateJWT = async (req, res, next) => {
     // let token = req.headers.authorization;
 
     let token = req.headers.authorization
-    
+    console.log(token)
     
     if (!token) {
         return res.status(401).json({
-            msg: 'Error de autenticación - No hay token en la petición'
+            msg: 'Error de autenticación - No hay token en la petición',
+            token
         })
     };
     
@@ -24,7 +25,7 @@ const validateJWT = async (req, res, next) => {
         if (!admin) {
             return res.status(401).json({
                 ok: false,
-                error: 'Token no válido - usuario no existe en BD'
+                error: ' usuario no existe en BD'
             });
         }
 
@@ -32,7 +33,7 @@ const validateJWT = async (req, res, next) => {
         if (!admin.isActive) {
             return res.status(401).json({
                 ok: false,
-                msg: 'Token no válido - usuario con estado false'
+                msg: ' usuario con estado false'
             });
         }
 

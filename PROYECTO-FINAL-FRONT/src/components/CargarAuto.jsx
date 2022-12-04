@@ -27,7 +27,7 @@ export const CargarAuto = () => {
 
     try {
       const addAuto = await axios.post(url, data);
-      console.log(addAuto.data)
+      console.log(addAuto.data);
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +35,7 @@ export const CargarAuto = () => {
 
   return (
     <>
-      <div className="container py-5 h-100">
+      <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
             <div className="card">
@@ -52,7 +52,9 @@ export const CargarAuto = () => {
                     <form>
                       <div className="d-flex align-items-center mb-3 pb-1">
                         <i className="fas fa-cubes fa-2x me-3"></i>
-                        <span className="h1 fw-bold mb-0">Cargar autos</span>
+                        <span className="h1 fw-bold mb-0">
+                          Habilitar nuevo vehículo
+                        </span>
                       </div>
 
                       <h5 className="fw-normal mb-3 pb-3">Describe el auto</h5>
@@ -78,49 +80,6 @@ export const CargarAuto = () => {
                           ref={inpTitular}
                         />
                       </div>
-
-                      <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="form2Example17">
-                          Licencia:
-                        </label>
-                        <select
-                          className="form-control form-control-lg"
-                          name=""
-                          id=""
-                          ref={inpLicencia}
-                        >
-                          <option value="true">Si</option>
-                          <option value="false">No</option>
-                        </select>
-                      </div>
-                      <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="form2Example17">
-                          Poliza de Seguro:
-                        </label>
-                        <select
-                          className="form-control form-control-lg"
-                          name=""
-                          id=""
-                          ref={inpSeguro}
-                        >
-                          <option value="true">Si</option>
-                          <option value="false">No</option>
-                        </select>
-                      </div>
-                      <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="form2Example17">
-                          Revisión Técnica Obligatoria:
-                        </label>
-                        <select
-                          className="form-control form-control-lg"
-                          name=""
-                          id=""
-                          ref={inpRTO}
-                        >
-                          <option value="true">Si</option>
-                          <option value="false">No</option>
-                        </select>
-                      </div>
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example17">
                           Marca:
@@ -143,6 +102,49 @@ export const CargarAuto = () => {
                           ref={inpModelo}
                         />
                       </div>
+                      <div className="form-outline mb-4">
+                        <label className="form-label" htmlFor="form2Example17">
+                          Cuenta con licencia(SI/NO):
+                        </label>
+                        <select
+                          className="form-control form-control-lg"
+                          name=""
+                          id=""
+                          ref={inpLicencia}
+                        >
+                          <option value="true">Si</option>
+                          <option value="false">No</option>
+                        </select>
+                      </div>
+                      <div className="form-outline mb-4">
+                        <label className="form-label" htmlFor="form2Example17">
+                          Cuenta con Poliza de Seguro(SI/NO):
+                        </label>
+                        <select
+                          className="form-control form-control-lg"
+                          name=""
+                          id=""
+                          ref={inpSeguro}
+                        >
+                          <option value="true">Si</option>
+                          <option value="false">No</option>
+                        </select>
+                      </div>
+                      <div className="form-outline mb-4">
+                        <label className="form-label" htmlFor="form2Example17">
+                          Cuenta con Revisión Técnica Obligatoria(SI/NO):
+                        </label>
+                        <select
+                          className="form-control form-control-lg"
+                          name=""
+                          id=""
+                          ref={inpRTO}
+                        >
+                          <option value="true">Si</option>
+                          <option value="false">No</option>
+                        </select>
+                      </div>
+
                       <div className="pt-1 mb-4">
                         <button
                           onClick={registrar}
