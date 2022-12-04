@@ -121,13 +121,16 @@ const Tarjetadenuncia = () => {
                           <option defaultValue="0">
                             Selecciona una opción.
                           </option>
-                          <option value="1">Alfa Romeo</option>
-                          <option value="2">Audi</option>
-                          <option value="3">BMW</option>
-                          <option value="4">Chevrolet</option>
-                          <option value="5">Citroen</option>
-                          <option value="6">Fiat</option>
-                          <option value="7">Ford</option>
+                          <option value="Alfa Romeo">Alfa Romeo</option>
+                          <option value="Audi">Audi</option>
+                          <option value="BMW">BMW</option>
+                          <option value="Chevrolet">Chevrolet</option>
+                          <option value="Citroen">Citroen</option>
+                          <option value="Fiat">Fiat</option>
+                          <option value="Ford">Ford</option>
+                          <option value="Renault">Renault</option>
+                          <option value="Toyota">Toyota</option>
+                          <option value="Peugeot">Peugeot</option>
                         </select>
                       </div>
                       <div className="modal-body">

@@ -5,7 +5,7 @@ export const Navbar = () => {
     <>
       <nav className="navbar bg-light">
         <div className="container-fluid">
-          <h5>HOLA</h5>
+          <h5 className="text-white">.</h5>
         </div>
       </nav>
       <nav className="navbar bg-dark">
@@ -14,7 +14,7 @@ export const Navbar = () => {
           <h1>
             <img
               src="/public/img/TRANSIT-nb.png"
-              style={{ width: "120px", marginRight: "700px" }}
+              style={{ width: "120px", marginRight: "600px" }}
             />
           </h1>
         </div>

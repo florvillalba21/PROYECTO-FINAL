@@ -2,13 +2,17 @@ import React from "react";
 
 export const CardDenuncia = ({denuncia})=>{
     return (
+        <>
+        <div className="card-header" style={{ backgroundColor: "#212529" }}>
+            <h4 className="card-title text-white">Informe:</h4>
+        </div>
         <div className="card-body">
-            <h4 className="card-header bg-dark text-light">Fecha: {denuncia.fecha}</h4>
-            <h6 className="card-title">Información de la denuncia</h6>
-            <p className="card-text">El día {denuncia.fecha}, se ha realizado una denuncia a un vehiculo de transporte de pasajeros con el dominio {denuncia.matricula}, marca del vehiculo {denuncia.marca}</p>
+            <p className="card-text">Se realizo una denuncia correspondiente al día {denuncia.fecha}, 
+            al vehiculo {denuncia.marca} con dominio {denuncia.matricula}.
+            Se muestran detalles para una mejor identificación.</p>
             <h6>Detalles:</h6>
             <p>{denuncia.detalles}</p>
-
         </div>
+        </>
     )
 }

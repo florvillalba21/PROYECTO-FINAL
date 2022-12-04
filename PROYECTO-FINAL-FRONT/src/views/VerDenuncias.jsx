@@ -18,10 +18,10 @@ export const Denuncias = () => {
   return (
     <>
       <NavAdmin text={"Denuncias"} />
-      <p style={{marginLeft: "15%"}}>Denuncias realizadas en el último mes.</p>
+      <h2 style={{marginLeft: "15%", marginTop: "20px"}}>Actas realizadas en el último mes:</h2>
       <div
         className="container card-group"
-        style={{ width: "70%", marginTop: "50px", border: "1px" }}
+        style={{ width: "70%", marginTop: "50px", border: "1px", borderColor: "grey"}}
       >
         <ListDenuncias denuncias={state} />
       </div>
