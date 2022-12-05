@@ -55,16 +55,9 @@ const NavAdmin = ({ text }) => {
           </Link>
         </ul>
         <span className="nav-link h4 w-100">
-
-          <Link
-            to="/"
-            onClick={logout}
-            className="bi bi-box-arrow-left px-2 text-white"
-            style={{ backgroundColor: "#0e1c2b" }}
-          ></Link>
-
-          
-
+          <Link  to="/" onClick={logout}>
+          <i className="bi bi-box-arrow-left text-white"></i>
+          </Link>
         </span>
       </div>
       <div className="my-container active-cont">

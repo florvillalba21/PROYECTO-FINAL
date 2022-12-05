@@ -14,7 +14,7 @@ export const Navbar = () => {
           <h1>
             <img
               src="/public/img/TRANSIT-nb.png"
-              style={{ width: "120px", marginRight: "600px" }}
+              style={{ width: "120px", marginRight: "700px" }}
             />
           </h1>
         </div>
