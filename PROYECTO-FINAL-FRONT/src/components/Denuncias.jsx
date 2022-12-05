@@ -11,7 +11,7 @@ export const ListDenuncias = ({ denuncias =[] }) => {
         denuncias.map((denuncia, key) => {
           return (
             <div className="col" key={'denuncia' + key}>
-              <div className="card">
+              <div className="card" style={{borderColor: "grey"}}>
                 <CardDenuncia denuncia = {denuncia}/>
               </div>
             </div>
