@@ -30,6 +30,7 @@ export const Login = () => {
 
         navigate("/homeAdmin");
       }
+
     } catch (error) {
       console.error("There was an error!", error);
       setDivAlert(divDanger);

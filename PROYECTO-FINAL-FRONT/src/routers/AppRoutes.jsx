@@ -1,7 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { App } from "../App";
-import { AuthContext } from "../context/AuthContext";
-import { HomeUser } from "../views/HomeUser";
+import { HomeUser } from "../ui/HomeUser";
 import { Login } from "../views/Login";
 import { Register } from "../views/Register";
 import { Dashboard } from "./Dashboard";
