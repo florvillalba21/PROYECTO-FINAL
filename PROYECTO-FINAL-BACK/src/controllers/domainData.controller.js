@@ -7,11 +7,12 @@ ctrlCar.getCarData = async (req, res) => {
 
   if (!carData)
     return res.json({
+      ok: false,
       msg: "No existe este vehiculo.",
     });
 
     try {
-      return res.json(carData);
+      return res.json({car: carData});
     
     } catch (error) {
       return res.json({error})

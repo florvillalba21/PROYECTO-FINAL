@@ -7,7 +7,7 @@ return(
     <>
     <NavAdmin text={"Todo lo que necesitas saber de nuestra aplicación."}/>
     
-    <div className="container-sm me-md-5">
+    <div className="container-sm me-md-4">
         <div className="title ">
             <h4 className="pl-8">Aquí podrás encontrar algunas recomendaciones y guías de nuestra aplicación:</h4>
 

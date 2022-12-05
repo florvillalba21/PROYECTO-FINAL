@@ -25,7 +25,7 @@ const UserProfile = () => {
     <>
       <div
         className="form"
-        style={{ width: "18rem", position: "relative", left: "15%" }}
+        style={{ width: "auto", left: "30%" }}
       >
         <fieldset disabled>
           <legend>Datos personales:</legend>

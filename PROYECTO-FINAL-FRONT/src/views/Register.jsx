@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useRef } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import NavAdmin from "../components/layout/NavAdmin";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -46,6 +47,7 @@ export const Register = () => {
 
   return (
     <>
+    <NavAdmin text={"Agregar nuevo inspector en el sistema."}/>
       <div className="container  h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
@@ -62,10 +64,6 @@ export const Register = () => {
                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
                   <div className="card-body p-4 p-lg-5 text-black">
                     <form>
-                      <div className="d-flex align-items-center mb-3 pb-1">
-                        <i className="fas fa-cubes fa-2x me-3"></i>
-                        <span className="h1 fw-bold mb-0">Registrarse</span>
-                      </div>
 
                       <h5 className="fw-normal mb-3 pb-3">Ingresa tu cuenta</h5>
                       <div className="form-outline mb-4">

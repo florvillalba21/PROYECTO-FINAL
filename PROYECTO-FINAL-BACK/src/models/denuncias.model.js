@@ -13,6 +13,10 @@ const denunciasSchema = new Schema({
         type: String,
         required: true
     },
+    categorias: {
+        type: String,
+        required: true
+    },
     detalles: {
         type: String,
         required: true

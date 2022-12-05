@@ -41,6 +41,10 @@ const NavAdmin = ({ text }) => {
             <i className="bi bi-person"></i>
             <span className="mx-2">Perfil</span>
           </Link>
+          <Link to="/register" className="nav-link h5 text-white my-2">
+            <i className="bi bi-person-plus"></i>
+            <span className="mx-2">Agregar inspector</span>
+          </Link>
           <Link to="/verdenuncias" className={isDisabled}>
             <i className=" bi-journal-text"></i>
             <span className="mx-2">Ver denuncias</span>

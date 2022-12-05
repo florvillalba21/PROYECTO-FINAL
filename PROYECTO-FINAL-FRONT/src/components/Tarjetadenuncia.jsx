@@ -8,7 +8,11 @@ const Tarjetadenuncia = () => {
   const inpDom = useRef();
   const inpColor = useRef();
   const textDet = useRef();
-  const fecha = new Date;
+  const checkSeguro = useRef();
+  const checkRTO = useRef();
+  const checkLicencia = useRef();
+  const checkCedula = useRef();
+  const fecha = new Date();
   const enviarDenuncia = async (e) => {
     e.preventDefault();
     try {
@@ -18,7 +22,7 @@ const Tarjetadenuncia = () => {
         marca: selMarca.current.value,
         color: inpColor.current.value,
         detalles: textDet.current.value,
-        fecha: fecha.toLocaleDateString()
+        fecha: fecha.toLocaleDateString(),
       };
 
       const res = await axios.post(url, data);
@@ -148,6 +152,75 @@ const Tarjetadenuncia = () => {
                           title="Choose your color"
                         />
                       </div>
+
+                      <div className="modal-body">
+                        <label
+                          htmlFor="exampleColorInput"
+                          className="form-label"
+                        >
+                          Indique la(s) infracción(es) cometida:
+                        </label>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value=""
+                            ref={checkSeguro}
+
+                          />
+                          <label
+                            class="form-check-label"
+                            for="flexCheckDefault"
+                          >
+                            Falta seguro
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value=""
+                            ref={checkRTO}
+                          />
+                          <label
+                            class="form-check-label"
+                            for="flexCheckDefault"
+                          >
+                            Falta RTO
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value=""
+                            ref={checkLicencia}
+                          />
+                          <label
+                            class="form-check-label"
+                            for="flexCheckDefault"
+                          >
+                            Falta Licencia
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value=""
+                            ref={checkCedula}
+                          />
+                          <label
+                            class="form-check-label"
+                            for="flexCheckDefault"
+                          >
+                            Falta Cédula
+                          </label>
+                        </div>
+                      </div>
+
+                      
+
                       <div className="modal-body">
                         <label
                           htmlFor="exampleFormControlTextarea1"

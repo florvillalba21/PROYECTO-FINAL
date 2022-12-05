@@ -5,12 +5,8 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 const Tarjetadominio = () => {
-  const token = useContext(AuthContext)
-  const config = {
-    Headers : {
-      Authorization : token
-    }
-  }
+  const { admin } = useContext(AuthContext);
+
   const inpDom = useRef();
   const [div = " fade hidde", setDiv] = useState();
   const [data = [], setData] = useState();
@@ -18,22 +14,36 @@ const Tarjetadominio = () => {
 
   const dataDom = async () => {
     try {
-
       const url = "http://localhost:4000/buscarDom";
-      const res = await axios.get(`${url}/${inpDom.current.value}`, config);
+      const res = await axios.get(`${url}/${inpDom.current.value}`, {
+        headers: {
+          Authorization: `${admin.token}`,
+        },
+      });
       const infoRes = res.data;
       const infoList = infoRes;
+      
 
-      if (data.licencia != true || data.RTO != true || data.seguro != true) {
-        setDiv("fade show");
-        setRes(
-          "Este vehículo no está en condiciones para transportar a pasajeros"
-        );
-        console.log(infoList)
+      if (!infoList.car) {
         setData(infoList)
+        setDiv("fade show");
+        setRes("Este dominio no existe"), setData("");
+      }
+
+      if (
+        infoList.car.licencia != true ||
+        infoList.car.RTO != true ||
+        infoList.car.seguro != true
+      ) {
+        setData(infoList)
+          setDiv("fade show"),
+          setRes(
+            `Este vehículo no está en condiciones para transportar a pasajeros.`
+          );
       } else {
-        setData(infoList);
-        setRes("Este vehículo está en regla.");
+        setData(infoList)
+        setDiv("fade show")
+        setRes(`Este vehículo está en regla.`)
       }
     } catch (error) {
       console.error("There was an error!", error);
@@ -131,13 +141,8 @@ const Tarjetadominio = () => {
                             </div>
                             <div className="card-body">
                               <p>{res}</p>
-                              <ul className="list-group">
-                                <li className="list-group">
-                                  Dominio: {data.matricula}
-                                </li>
-                                <li className="list-group">
-                                  Titular: {data.titular}
-                                </li>
+                              <ul>
+                                
                               </ul>
                             </div>
                           </div>
