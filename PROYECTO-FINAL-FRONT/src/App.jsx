@@ -3,6 +3,7 @@ import { AuthContext } from "./context/AuthContext";
 import { AppRouter } from "./routers/AppRoutes";
 import { PrivateRoutes } from "./routers/PrivateRoutes";
 
+
 export const App = () => {
   
   const admin ={ 

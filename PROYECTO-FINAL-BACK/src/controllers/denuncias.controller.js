@@ -15,12 +15,13 @@ CtrlDenuncias.getDenuncias = async (req, res) => {
 };
 
 CtrlDenuncias.postDenuncia = async (req, res) => {
-  const { matricula, marca, color, detalles, fecha } = req.body;
+  const { matricula, marca, color, categorias, detalles, fecha } = req.body;
 
   const denuncia = new Denuncia({
     matricula,
     marca,
     color,
+    categorias,
     detalles,
     fecha,
   });

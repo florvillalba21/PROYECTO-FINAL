@@ -92,3 +92,22 @@ div.card-header{
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+/* Establece el color de fondo del cuerpo en azul. Establece el tipo de letra a Rubik */
+
+body {
+  background-color: #0A2344;
+  font-family: 'rubik', sans-serif;
+}
+
+/* Alinea el texto del encabezado al centro. */
+ 
+h1 {
+  text-align: center;
+}
+
+/* Establece el ancho del acordeón. Establece el margen a 90px en la parte superior e inferior y auto a la izquierda y derecha */
+

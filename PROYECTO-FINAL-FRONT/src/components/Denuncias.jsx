@@ -6,14 +6,15 @@ export const ListDenuncias = ({ denuncias =[] }) => {
     return null
   }
   return (
-    <div className="row">
+    <div className="acordeon">
+      <hr />
       {
         denuncias.map((denuncia, key) => {
           return (
-            <div className="col" key={'denuncia' + key}>
-              <div className="card" style={{borderColor: "grey"}}>
+            <div className="contenedor" key={'denuncia' + key}>
+              
                 <CardDenuncia denuncia = {denuncia}/>
-              </div>
+              
             </div>
           )
         })
