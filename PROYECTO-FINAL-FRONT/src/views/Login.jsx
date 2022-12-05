@@ -1,18 +1,16 @@
 import axios from "axios";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-
-
 export const Login = () => {
   const navigate = useNavigate();
-  const divDanger = "alert alert-danger alert-dismissible fade show"
-  const [divAlert, setDivAlert] = useState("")
-  const [text="", setText] = useState()
+  const divDanger = "alert alert-danger alert-dismissible fade show";
+  const [divAlert, setDivAlert] = useState("");
+  const [text = "", setText] = useState();
   const inpCredencial = useRef();
   const inpPassword = useRef();
-  
+
   const loguear = async (e) => {
     e.preventDefault();
 
@@ -23,15 +21,13 @@ export const Login = () => {
     };
     try {
       const res = await axios.post(url, data);
-      
 
       if (res.data.ok == true) {
-        console.log(res.data)
         const tokenRes = res.data.token;
         const adminRol = res.data.rol;
         sessionStorage.setItem("token", tokenRes);
         sessionStorage.setItem("rol", adminRol);
-        
+
         navigate("/homeAdmin");
       }
     } catch (error) {
@@ -49,7 +45,7 @@ export const Login = () => {
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                  style={{width: "80%", marginTop: "30%", marginLeft: "5%"}}
+                    style={{ width: "80%", marginTop: "30%", marginLeft: "5%" }}
                     src="/img/TRANSIT-nb.png"
                     alt=""
                     className="img-fluid"
@@ -103,7 +99,8 @@ export const Login = () => {
                       </div>
                       <Link to="#!" className="small text-muted">
                         Terminos de uso
-                      </Link><br />
+                      </Link>
+                      <br />
                       <Link to="#!" className="small text-muted">
                         Políticas de Privacidad
                       </Link>

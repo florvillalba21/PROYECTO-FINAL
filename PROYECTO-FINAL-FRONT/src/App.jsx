@@ -3,6 +3,7 @@ import { AuthContext } from "./context/AuthContext";
 import { AppRouter } from "./routers/AppRoutes";
 
 export const App = () => {
+  
   const admin ={ 
     rol: sessionStorage.getItem("rol"),
     token: sessionStorage.getItem("token")}

@@ -3,10 +3,8 @@ const jwt = require('jsonwebtoken');
 const Admins = require('../models/admins.model');
 
 const validateJWT = async (req, res, next) => {
-    
-
     let token = req.headers.authorization
-    console.log(token)
+ 
     
     if (!token) {
         return res.status(401).json({
@@ -18,19 +16,21 @@ const validateJWT = async (req, res, next) => {
 
 
     try {
-        const { credencial } = jwt.verify(token, process.env.SECRET)
-        const admin = await Admins.findOne({credencial: credencial})
+        const { uid } = jwt.verify(token, process.env.SECRET)
+       
+        const admin = await Admins.findById(uid )
         
 
         if (!admin) {
             return res.status(401).json({
                 ok: false,
-                error: ' usuario no existe en BD'
+                error: ' usuario no existe en BD',
+                id: "sdfs"+uid
             });
         }
 
         
-        if (!admin.isActive) {
+        if (!admin.estado) {
             return res.status(401).json({
                 ok: false,
                 msg: ' usuario con estado false'
@@ -39,12 +39,13 @@ const validateJWT = async (req, res, next) => {
 
         // Se añade la información del usuario al request para que pueda ser utilizada en el resto de middlwares
         req.admin = admin;
-
+        
         
         next();
     } catch (error) {
         console.log(error);
         res.status(401).json({
+            error,
             msg: 'Error de autenticación - Token no válido'
         })
     }

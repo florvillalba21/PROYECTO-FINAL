@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CargarAuto } from "../components/CargarAuto";
@@ -9,6 +9,7 @@ import { AuthContext } from "../context/AuthContext";
 
 export const HomeAdmin = () => {
   const {admin} = useContext(AuthContext);
+
   
   console.log(admin.rol);
   if (admin.rol == "ADMIN") {

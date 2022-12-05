@@ -1,13 +1,17 @@
 import React from "react";
 import axios from "axios";
 import { useRef } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const CambiarPw = () => {
+  const {admin} = useContext(AuthContext);
   const inpPassActual = useRef();
   const inpPassNueva = useRef();
   const inpPassRep = useRef();
 
   const CambiarPass = async () => {
+   
     const url = "http://localhost:4000/cambiarpass";
     const data = {
       passActual: inpPassActual.current.value,
@@ -15,8 +19,13 @@ const CambiarPw = () => {
       passRep: inpPassRep.current.value,
     };
     try {
-      const res = await axios.put(url, data);
+      const res = await axios.put(url, data, {
+        headers: {
+          Authorization: `${admin.token}`,
+        },
+      });
       const info = res.data;
+      console.log(info)
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -61,6 +70,7 @@ const CambiarPw = () => {
                     Ingrese su contraseña actual:
                   </label>
                   <input
+                  ref={inpPassActual}
                     type="password"
                     className="form-control"
                     id="Password1"
@@ -70,6 +80,7 @@ const CambiarPw = () => {
                     Ingrese la contraseña nueva:
                   </label>
                   <input
+                  ref={inpPassNueva}
                     type="password"
                     className="form-control"
                     id="Password2"
@@ -79,6 +90,7 @@ const CambiarPw = () => {
                     Repita la nueva contraseña:
                   </label>
                   <input
+                  ref={inpPassRep}
                     type="password"
                     className="form-control"
                     id="Password2"
@@ -97,6 +109,7 @@ const CambiarPw = () => {
                   onClick={CambiarPass}
                   type="button"
                   className="btn btn-success"
+                  data-bs-dismiss="modal"
                 >
                   Aceptar
                 </button>

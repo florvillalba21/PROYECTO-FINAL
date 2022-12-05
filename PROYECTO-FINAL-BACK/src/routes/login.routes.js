@@ -1,5 +1,5 @@
 const { check } = require("express-validator");
-const { postAdmin, loginAdmin, getAdmin } = require("../controllers/login.controller");
+const { postAdmin, loginAdmin, getAdmin, putAdmin } = require("../controllers/login.controller");
 const validarCampos = require("../middlewares/validate-fields");
 const validateCredencial = require("../middlewares/validateCredencial");
 const validateJWT = require("../middlewares/validateJWT");
@@ -29,6 +29,7 @@ router.post(
   postAdmin
 );
 
-router.get("/admins",[validateJWT],getAdmin)
+router.get("/admins",[validateJWT],getAdmin);
+router.put("/cambiarPass", [validateJWT], putAdmin);
 
 module.exports = router;

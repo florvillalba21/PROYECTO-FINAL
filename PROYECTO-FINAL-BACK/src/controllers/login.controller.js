@@ -4,14 +4,20 @@ const bcrypt = require("bcrypt");
 const ctrlAdmin = {};
 
 ctrlAdmin.postAdmin = async (req, res) => {
-  const { nombre, apellido, credencial, password: passRecibida, rol } = req.body;
+  const {
+    nombre,
+    apellido,
+    credencial,
+    password: passRecibida,
+    rol,
+  } = req.body;
 
-  const existAdmin = await Admin.findOne({credencial: credencial})
-  if(existAdmin){
+  const existAdmin = await Admin.findOne({ credencial: credencial });
+  if (existAdmin) {
     return res.json({
       ok: false,
-      msg: "administrador existente"
-    })
+      msg: "administrador existente",
+    });
   }
 
   const passEncriptada = bcrypt.hashSync(passRecibida, 10);
@@ -21,7 +27,7 @@ ctrlAdmin.postAdmin = async (req, res) => {
     apellido,
     credencial,
     password: passEncriptada,
-    rol
+    rol,
   });
 
   const admin = await newAdmin.save();
@@ -38,7 +44,7 @@ ctrlAdmin.loginAdmin = async (req, res) => {
 
   try {
     const admin = await Admin.findOne({ credencial });
-    console.log(admin.rol);
+
     if (!admin) {
       return res.status(400).json({
         ok: false,
@@ -63,20 +69,17 @@ ctrlAdmin.loginAdmin = async (req, res) => {
     }
 
     const token = await generateT({ uid: admin._id });
-    return res.json({ ok: true, token, rol: admin.rol , admin});
+    return res.json({ ok: true, token, rol: admin.rol, admin });
   } catch (error) {
     console.log(error);
     return res.json({ msg: "Error al iniciar sesión" });
   }
 };
 
-
 ctrlAdmin.getAdmin = async (req, res) => {
-  
-
+  const id = req.admin;
   try {
-    const { admin } = req.body;
-     const resAdmin = await Admin.findOne({ credencial : admin._id});
+    const resAdmin = await Admin.findById(id);
 
     if (!resAdmin) {
       return res.status(400).json({
@@ -91,36 +94,48 @@ ctrlAdmin.getAdmin = async (req, res) => {
         msg: "ha ocurrido un error fatal :o" - "Usuario inactivo",
       });
     }
-    return res.json({ ok: true, resAdmin});
+    return res.json({ ok: true, resAdmin });
   } catch (error) {
     console.log(error);
-    return res.json({ msg: "Error al iniciar sesión" });
+    return res.json({ error });
   }
 };
 
 ctrlAdmin.putAdmin = async (req, res) => {
-  const userId = req.user;
+  const userId = req.admin;
   const { passActual, passNueva, passRep } = req.body;
 
-  try {
-    // const admin = await Admin.findOne({ _id });
-    // if (!admin) {
-    //   return res.status(400).json({
-    //     ok: false,
-    //     msg: "ha ocurrido un error fatal :o" - "admin inexistente",
-    //   });
-    // }
+  const admin = await Admin.findById(userId);
 
-    if(passNueva != passRep){
-      return res.status(400).json({
-        ok: false,
-        msg: "ha ocurrido un error fatal :o" - "las contraseñas no son iguales",
-      });
-    }
-    const passUpdate = await Admin.findByIdAndUpdate(userId, passNueva, {new:true} )
+  if (!admin) {
+    return res.status(400).json({
+      ok: false,
+      msg: "ha ocurrido un error fatal :o" - "admin inexistente",
+    });
+  }
+  const validarPassword = bcrypt.compareSync(passActual, admin.password);
+
+  if (!validarPassword) {
+    return res.status(400).json({
+      ok: false,
+      msg: "no es la contraseña actual",
+    });
+  }
+
+  if (passNueva != passRep) {
+    return res.status(400).json({
+      ok: false,
+      msg: "ha ocurrido un error fatal :o" - "las contraseñas no son iguales",
+    });
+  }
+  try {
+    const passUpdate = await Admin.findByIdAndUpdate(userId, passNueva, {
+      new: true,
+    });
 
     return res.json({
       msg: "Usuario actualizado :)",
+      passUpdate
     });
   } catch (error) {
     return res.status(500).json({
