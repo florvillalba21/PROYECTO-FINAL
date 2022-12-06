@@ -1,8 +1,10 @@
 import axios from "axios";
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const Tarjetadenuncia = () => {
+  const {admin}= useContext(AuthContext);
   const [data = {}, setData] = useState({});
   const selMarca = useRef();
   const inpDom = useRef();
@@ -18,10 +20,15 @@ const Tarjetadenuncia = () => {
     try {
       const url = "http://localhost:4000/denunciasN";
       const data = {
+        inspector: admin.credencial,
         matricula: inpDom.current.value,
         marca: selMarca.current.value,
         color: inpColor.current.value,
         detalles: textDet.current.value,
+        cedula: checkCedula.current.value,
+        RTO: checkRTO.current.value,
+        seguro: checkSeguro.current.value,
+        licencia: checkLicencia.current.value,
         fecha: fecha.toLocaleDateString(),
       };
 

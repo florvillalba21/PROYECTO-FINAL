@@ -11,8 +11,8 @@ const NavAdmin = ({ text,categoria}) => {
   const [isDisabled, setDisabled] = useState("");
 
   useEffect(() => {
-    if (admin.rol == "ADMIN") {
-      setDisabled(classDisabled + " disabled");
+    if (admin.rol == "INSPECTOR") {
+      setDisabled(classDisabled + " collapse");
     } else {
       setDisabled(classDisabled);
     }
@@ -41,11 +41,11 @@ const NavAdmin = ({ text,categoria}) => {
             <i className="bi bi-person"></i>
             <span className="mx-2">Perfil</span>
           </Link>
-          <Link to="/register" className="nav-link h5 text-white my-2">
+          <Link to="/register" className={isDisabled}>
             <i className="bi bi-person-plus"></i>
             <span className="mx-2">Agregar inspector</span>
           </Link>
-          <Link to="/verdenuncias" className={isDisabled}>
+          <Link to="/verdenuncias" className="nav-link h5 text-white my-2">
             <i className=" bi-journal-text"></i>
             <span className="mx-2">Ver denuncias</span>
           </Link>

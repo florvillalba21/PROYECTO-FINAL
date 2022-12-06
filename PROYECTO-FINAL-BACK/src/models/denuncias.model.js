@@ -1,6 +1,10 @@
 const {model, Schema} = require('mongoose')
 
 const denunciasSchema = new Schema({
+    inspector: {
+        type: String,
+        required: true
+    },
     matricula: {
         type: String,
         required: true
@@ -13,9 +17,17 @@ const denunciasSchema = new Schema({
         type: String,
         required: true
     },
-    categorias: {
-        type: String,
-        required: true
+    cedula: {
+        type: String
+    },
+    RTO: {
+        type: String
+    },
+    seguro: {
+        type: String
+    },
+    licencia: {
+        type: String
     },
     detalles: {
         type: String,

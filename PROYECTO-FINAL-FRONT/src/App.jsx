@@ -7,6 +7,7 @@ import { PrivateRoutes } from "./routers/PrivateRoutes";
 export const App = () => {
   
   const admin ={ 
+    credencial: sessionStorage.getItem("insp"),
     rol: sessionStorage.getItem("rol"),
     token: sessionStorage.getItem("token")}
 

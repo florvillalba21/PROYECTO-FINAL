@@ -3,25 +3,55 @@ const Denuncia = require("../models/denuncias.model");
 const CtrlDenuncias = {};
 
 CtrlDenuncias.getDenuncias = async (req, res) => {
-  const denuncias = await Denuncia.find();
+  const user = req.admin.rol;
 
-  if (!denuncias) {
-    return res.json({
-      ok: false,
-      msg: "No hay denuncias realizadas",
-    });
+  if (user == "ADMIN") {
+    const denuncias = await Denuncia.find();
+    if (!denuncias) {
+      return res.json({
+        ok: false,
+        msg: "No hay denuncias realizadas",
+      });
+    }
+    return res.json({ ok: true, denuncias });
   }
-  return res.json({ ok: true, denuncias });
+  if (user == "INSPECTOR") {
+    const denuncias = await Denuncia.findOne({
+      inspector: req.admin.credencial,
+    });
+    if (!denuncias) {
+      return res.json({
+        ok: false,
+        msg: "No hay denuncias realizadas",
+      });
+    }
+    return res.json({ ok: true, denuncias });
+  }
 };
 
 CtrlDenuncias.postDenuncia = async (req, res) => {
-  const { matricula, marca, color, categorias, detalles, fecha } = req.body;
-
-  const denuncia = new Denuncia({
+  const {
+    inspector,
     matricula,
     marca,
     color,
-    categorias,
+    cedula,
+    RTO,
+    seguro,
+    licencia,
+    detalles,
+    fecha,
+  } = req.body;
+
+  const denuncia = new Denuncia({
+    inspector,
+    matricula,
+    marca,
+    color,
+    cedula,
+    RTO,
+    seguro,
+    licencia,
     detalles,
     fecha,
   });
