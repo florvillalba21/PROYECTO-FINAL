@@ -45,6 +45,7 @@ const NavAdmin = ({ text, categoria }) => {
             <i className="bi bi-person-plus"></i>
             <span className="mx-2">Agregar inspector</span>
           </Link>
+
           <Link to="/verdenuncias" className="nav-link h5 text-white my-2">
             <i className=" bi-journal-text"></i>
             <span className="mx-2">Ver denuncias</span>

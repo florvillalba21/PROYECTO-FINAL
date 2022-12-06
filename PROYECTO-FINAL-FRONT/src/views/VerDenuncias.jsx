@@ -23,12 +23,13 @@ export const Denuncias = () => {
       })
       .then((response) => {
         const resultado = response.data.denuncias;
-
-        if (Array.isArray(resultado)) {
-          setState(resultado);
-        } else {
-          listDenuncias.push(resultado);
-          setState(listDenuncias);
+        if (resultado) {
+          if (Array.isArray(resultado)) {
+            setState(resultado);
+          } else {
+            listDenuncias.push(resultado);
+            setState(listDenuncias);
+          }
         }
       });
   }, []);
@@ -36,12 +37,11 @@ export const Denuncias = () => {
   return (
     <>
       <NavAdmin text={"Denuncias"} />
-      <NavDenuncia/>
+      <NavDenuncia />
       <h2 style={{ marginLeft: "15%", marginTop: "20px" }}>
         Actas realizadas en el último mes:
       </h2>
       <div style={{ marginLeft: "15%" }}>
-        
         <ControlledAccordions denuncias={state} />
       </div>
     </>

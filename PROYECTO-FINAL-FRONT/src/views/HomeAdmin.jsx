@@ -1,11 +1,12 @@
 import { useEffect, useReducer } from "react";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CargarAuto } from "../components/CargarAuto";
+
 import NavAdmin from "../components/layout/NavAdmin";
 import Tarjetadenuncia from "../components/Tarjetadenuncia";
 import Tarjetadominio from "../components/Tarjetadominio";
 import { AuthContext } from "../context/AuthContext";
+import { CargarAuto } from "./CargarAuto";
 
 export const HomeAdmin = () => {
   const {admin} = useContext(AuthContext);

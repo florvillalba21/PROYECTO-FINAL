@@ -13,7 +13,7 @@ export default function ControlledAccordions({ denuncias=[] }) {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-  console.log(denuncias)
+ 
   
   return (
     <div>
@@ -36,7 +36,7 @@ export default function ControlledAccordions({ denuncias=[] }) {
                Infraccion
               </Typography>
               <Typography sx={{ color: "text.secondary" }}>
-                {denuncia.fecha}
+                {denuncia.fecha} {denuncia.matricula} {denuncia.cedula}
               </Typography>
             </AccordionSummary>
             <AccordionDetails>

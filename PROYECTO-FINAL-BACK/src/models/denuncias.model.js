@@ -18,16 +18,16 @@ const denunciasSchema = new Schema({
         required: true
     },
     cedula: {
-        type: String
+        type: Boolean
     },
     RTO: {
-        type: String
+        type: Boolean
     },
     seguro: {
-        type: String
+        type: Boolean
     },
     licencia: {
-        type: String
+        type: Boolean
     },
     detalles: {
         type: String,

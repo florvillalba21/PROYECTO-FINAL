@@ -10,11 +10,14 @@ const Tarjetadenuncia = () => {
   const inpDom = useRef();
   const inpColor = useRef();
   const textDet = useRef();
-  const checkSeguro = useRef();
-  const checkRTO = useRef();
-  const checkLicencia = useRef();
-  const checkCedula = useRef();
+  const checkSeguro = document.getElementById("seguro")
+  const checkRTO = document.getElementById("RTO")
+  const checkLicencia = document.getElementById("licencia")
+  const checkCedula =document.getElementById("cedula")
   const fecha = new Date();
+
+
+  
   const enviarDenuncia = async (e) => {
     e.preventDefault();
     try {
@@ -25,10 +28,10 @@ const Tarjetadenuncia = () => {
         marca: selMarca.current.value,
         color: inpColor.current.value,
         detalles: textDet.current.value,
-        cedula: checkCedula.current.value,
-        RTO: checkRTO.current.value,
-        seguro: checkSeguro.current.value,
-        licencia: checkLicencia.current.value,
+        cedula: checkCedula.checked ? true : false,
+        RTO: checkRTO.checked ? true : false,
+        seguro: checkSeguro.checked ? true : false,
+        licencia: checkLicencia.checked ? true : false,
         fecha: fecha.toLocaleDateString(),
       };
 
@@ -171,7 +174,8 @@ const Tarjetadenuncia = () => {
                           <input
                             class="form-check-input"
                             type="checkbox"
-                            value=""
+                            value="seguro"
+                            id="seguro"
                             ref={checkSeguro}
 
                           />
@@ -186,8 +190,9 @@ const Tarjetadenuncia = () => {
                           <input
                             class="form-check-input"
                             type="checkbox"
-                            value=""
+                            value="RTO"
                             ref={checkRTO}
+                            id="RTO"
                           />
                           <label
                             class="form-check-label"
@@ -200,8 +205,9 @@ const Tarjetadenuncia = () => {
                           <input
                             class="form-check-input"
                             type="checkbox"
-                            value=""
+                            value="licencia"
                             ref={checkLicencia}
+                            id="licencia"
                           />
                           <label
                             class="form-check-label"
@@ -214,8 +220,9 @@ const Tarjetadenuncia = () => {
                           <input
                             class="form-check-input"
                             type="checkbox"
-                            value=""
+                            value="cedula"
                             ref={checkCedula}
+                            id="cedula"
                           />
                           <label
                             class="form-check-label"

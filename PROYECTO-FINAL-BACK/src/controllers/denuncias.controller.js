@@ -16,7 +16,7 @@ CtrlDenuncias.getDenuncias = async (req, res) => {
     return res.json({ ok: true, denuncias });
   }
   if (user == "INSPECTOR") {
-    const denuncias = await Denuncia.findOne({
+    const denuncias = await Denuncia.find({
       inspector: req.admin.credencial,
     });
     if (!denuncias) {
@@ -69,5 +69,22 @@ CtrlDenuncias.postDenuncia = async (req, res) => {
       error,
     });
   }
+};
+
+CtrlDenuncias.getDenunciasCat = async (req, res) => {
+  const tipoCat = req.headers.value;
+  console.log(tipoCat)
+
+  const denuncias = await Denuncia.find({tipoCat: true})
+
+  
+    if (!denuncias) {
+      return res.json({
+        ok: false,
+        msg: "No hay denuncias realizadas",
+      });
+    }
+    return res.json({ ok: true, denuncias });
+  
 };
 module.exports = CtrlDenuncias;
