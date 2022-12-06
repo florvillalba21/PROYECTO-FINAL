@@ -68,37 +68,7 @@ const NavAdmin = ({ text, categoria }) => {
             </center>
           </div>
 
-          <li className="nav-item dropdown " style={{position: "realtive"}}>
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Categorias
-            </a>
-            <ul className="dropdown-menu">
-              <li>
-                <Link className="dropdown-item" href="#">
-                  Action
-                </Link>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  another action
-                </a>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
-            </ul>
-          </li>
+          
           <Link to="/profile">
             <img src="\img\logo-user.png" width="40px" />
           </Link>
