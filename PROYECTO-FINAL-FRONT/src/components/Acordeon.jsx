@@ -22,9 +22,10 @@ import AccordionItem from "./layout/AcordeonDenuncia";
     );
   });
 
+
   return (
     <div className="faq">
-      <dl className="faq__list">{denuncia}</dl>
+      {denuncia}
     </div>
   );
 };
