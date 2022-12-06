@@ -23,7 +23,7 @@ export const Denuncias = () => {
       <h2 style={{ marginLeft: "15%", marginTop: "20px" }}>
         Actas realizadas en el último mes:
       </h2>
-      <div className="acordeon-cuerpo" style={{marginLeft: "30%"}}>
+      <div style={{marginLeft: "15%"}}>
         <Accordion denuncias={state} />
       </div>
     </>
