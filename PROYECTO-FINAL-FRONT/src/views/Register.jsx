@@ -48,7 +48,7 @@ export const Register = () => {
   return (
     <>
     <NavAdmin text={"Agregar nuevo inspector en el sistema."}/>
-      <div className="container  h-100">
+      <div className="container h-50">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
             <div className="card">

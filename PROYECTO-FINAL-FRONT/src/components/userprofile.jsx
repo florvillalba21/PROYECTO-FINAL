@@ -25,7 +25,6 @@ const UserProfile = () => {
     <>
       <div
         className="form"
-        style={{ width: "auto", left: "30%" }}
       >
         <fieldset disabled>
           <legend>Datos personales:</legend>
@@ -62,7 +61,6 @@ const UserProfile = () => {
               placeholder={user.apellido}
             />
           </div>
-         
         </fieldset>
       </div>
     </>

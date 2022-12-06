@@ -38,7 +38,7 @@ const Tarjetadominio = () => {
         setData(infoList)
           setDiv("fade show"),
           setRes(
-            `Este vehículo no está en condiciones para transportar a pasajeros.`
+            "Este vehículo no cuenta con la habilitación para utlizarse como transporte de personas."
           );
       } else {
         setData(infoList)

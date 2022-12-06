@@ -21,7 +21,7 @@ export const BuscadorDom = () => {
       if (data.licencia != true || data.RTO != true || data.seguro != true ) {
         setDiv("fade show");
         setRes(
-          "Este vehículo no está en condiciones para transportar a pasajeros"
+          "Este vehículo no está en condiciones para utlizarse como transporte de personas."
         );
       } else {
         setData(infoRes);

@@ -7,7 +7,7 @@ const Profile = () => {
   return (
     <>
     <NavAdmin text={"Su perfil"}/>
-    <div>
+    <div className="form" style={{ width: "18rem", position: "relative", left: "15%" }}>
         <UserProfile/>
         <CambiarPw/>
     </div>

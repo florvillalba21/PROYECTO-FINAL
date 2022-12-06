@@ -33,7 +33,7 @@ const CambiarPw = () => {
 
   return (
     <>
-      <div style={{ width: "18rem", position: "relative", left: "15%" }}>
+      <div>
         <button
           type="button"
           className="btn btn-primary"
