@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-const NavAdmin = ({ text,categoria}) => {
+const NavAdmin = ({ text, categoria }) => {
   const { admin } = useContext(AuthContext);
   const classDisabled = "nav-link h5 text-white my-2";
   const [isDisabled, setDisabled] = useState("");
@@ -55,8 +55,8 @@ const NavAdmin = ({ text,categoria}) => {
           </Link>
         </ul>
         <span className="nav-link h4 w-100">
-          <Link  to="/" onClick={logout}>
-          <i className="bi bi-box-arrow-left text-white"></i>
+          <Link to="/" onClick={logout}>
+            <i className="bi bi-box-arrow-left text-white"></i>
           </Link>
         </span>
       </div>
@@ -67,12 +67,40 @@ const NavAdmin = ({ text,categoria}) => {
               <p className="h1">{text}</p>
             </center>
           </div>
-          
-          <ul to="/profile"  className="nav-link h5 text-white my-2">
-            <i className="">{categoria}</i>
-          </ul>
+
+          <li className="nav-item dropdown " style={{position: "realtive"}}>
+            <a
+              className="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Categorias
+            </a>
+            <ul className="dropdown-menu">
+              <li>
+                <Link className="dropdown-item" href="#">
+                  Action
+                </Link>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  another action
+                </a>
+              </li>
+              <li>
+                <hr className="dropdown-divider" />
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Something else here
+                </a>
+              </li>
+            </ul>
+          </li>
           <Link to="/profile">
-            <img src="../src\assets\img\logo-user.png" width="40px" />
+            <img src="\img\logo-user.png" width="40px" />
           </Link>
         </nav>
       </div>

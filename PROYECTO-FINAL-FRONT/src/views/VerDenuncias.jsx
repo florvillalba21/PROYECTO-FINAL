@@ -12,6 +12,7 @@ export const Denuncias = () => {
   const { admin } = useContext(AuthContext);
   const url = "http://localhost:4000/denuncias";
   const listDenuncias = [];
+
   useEffect(() => {
     axios
       .get(url, {
@@ -20,11 +21,14 @@ export const Denuncias = () => {
         },
       })
       .then((response) => {
-        if (typeof(response.data.denuncias) != "object") {
-          listDenuncias.push(response.data.denuncias);
-          setState(listDenuncias);
+        const resultado = response.data.denuncias
+        
+        if (Array.isArray(resultado)) {
+          setState(resultado);
+          
         } else {
-          setState(response.data.denuncias);
+          listDenuncias.push(resultado);
+          setState(listDenuncias);
         }
       });
   }, []);
