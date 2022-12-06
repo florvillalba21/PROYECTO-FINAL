@@ -87,4 +87,21 @@ CtrlDenuncias.getDenunciasCat = async (req, res) => {
     return res.json({ ok: true, denuncias });
   
 };
+
+CtrlDenuncias.getDenunciasB = async (req, res) => {
+  const buscador = req.headers.value;
+  console.log(buscador)
+
+  const denuncias = await Denuncia.find({inspector: buscador})
+
+  
+    if (!denuncias) {
+      return res.json({
+        ok: false,
+        msg: "No hay denuncias realizadas",
+      });
+    }
+    return res.json({ ok: true, denuncias });
+  
+};
 module.exports = CtrlDenuncias;

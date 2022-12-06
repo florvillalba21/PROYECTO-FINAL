@@ -36,7 +36,7 @@ export default function ControlledAccordions({ denuncias=[] }) {
                Infraccion
               </Typography>
               <Typography sx={{ color: "text.secondary" }}>
-                {denuncia.fecha} {denuncia.matricula} {denuncia.cedula}
+                Inspector {denuncia.inspector +'        -      '+ denuncia.fecha }
               </Typography>
             </AccordionSummary>
             <AccordionDetails>

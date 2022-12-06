@@ -7,19 +7,34 @@ import { AuthContext } from "../../context/AuthContext";
 import ControlledAccordions from "./AcordeonDenuncia";
 
 export const NavDenuncia = () => {
+  const inpBuscador = useRef()
   const [denuncias, setDenuncias] = useState([]);
   const [buscador, setBuscador] = useState([])
   const { admin } = useContext(AuthContext);
   const listDenuncias = []
 
-  useEffect(()=>{
+  const eventSubmit = (e)=>{
+    e.preventDefault()
     axios.get("http://localhost:4000/denBuscador", {
       headers: {
         Authorization: `${admin.token}`,
-        value: buscador,
+        value: inpBuscador.current.value,
       },
-    })
-  })
+    }).then((response) => {
+      const resultado = response.data.denuncias;
+      if (resultado) {
+        if (Array.isArray(resultado)) {
+          setDenuncias(resultado);
+        } else {
+          listDenuncias.push(resultado);
+          setDenuncias(listDenuncias);
+        }
+      }
+    });
+  }
+  
+
+
   const getDenuncias = (value) => {
     axios
       .get("http://localhost:4000/denunciasCat", {
@@ -109,13 +124,9 @@ export const NavDenuncia = () => {
                 type="search"
                 placeholder="Buscar denuncias de un inspector"
                 aria-label="Search"
-                onChange={event => {
-
-                  setBuscador (event.target.value)
-                  
-                  }}
+                ref={inpBuscador}
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button onClick={eventSubmit} className="btn btn-outline-success" type="button">
                 Buscar
               </button>
             </form>
