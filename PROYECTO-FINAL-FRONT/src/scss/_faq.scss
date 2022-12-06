@@ -1,5 +1,5 @@
 .faq {
-  width: 100%;
+  width: relative;
   padding-top: 65px;
   padding-bottom: 80px;
 
@@ -9,7 +9,7 @@
   }
 
   &__question {
-    max-width: 350px;
+    max-width: 500px;
     width: 100%;
   }
 
@@ -26,14 +26,14 @@
     padding-bottom: 18px;
 
     &::after {
-      content: url(../images/icon-arrow-down.svg);
+      content: url("../assets/img/icon-arrow-down.svg");
       margin-right: 17px;
       transform: rotate(90deg);
     }
 
-    &:hover {
-      color: $soft-red;
-    }
+    // &:hover {
+    //   color: $soft-red;
+    // }
   }
 
   &__desc {

@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-const NavAdmin = ({ text }) => {
+const NavAdmin = ({ text,categoria}) => {
   const { admin } = useContext(AuthContext);
   const classDisabled = "nav-link h5 text-white my-2";
   const [isDisabled, setDisabled] = useState("");
@@ -67,6 +67,10 @@ const NavAdmin = ({ text }) => {
               <p className="h1">{text}</p>
             </center>
           </div>
+          
+          <ul to="/profile"  className="nav-link h5 text-white my-2">
+            <i className="">{categoria}</i>
+          </ul>
           <Link to="/profile">
             <img src="../src\assets\img\logo-user.png" width="40px" />
           </Link>

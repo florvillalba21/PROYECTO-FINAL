@@ -19,7 +19,7 @@ export const Denuncias = () => {
 
   return (
     <>
-      <NavAdmin text={"Denuncias"} />
+      <NavAdmin text={"Denuncias"} categoria={"categorias"} />
       <h2 style={{ marginLeft: "15%", marginTop: "20px" }}>
         Actas realizadas en el último mes:
       </h2>

@@ -2,6 +2,13 @@
 
 html {
   box-sizing: border-box;
+ 
+}
+body{
+  min-height: 100vh;
+  line-height: 18px;
+  font-weight: 400;
+  place-items: center;
 }
 
 *,
@@ -10,21 +17,21 @@ html {
   box-sizing: inherit;
 }
 
-.faq{
+// .faq{
 
-  /*min-height and grid place-items center in a body to put attribution right under the component.
-  but generally I think it's better to put height and grid on container */
+//   /*min-height and grid place-items center in a body to put attribution right under the component.
+//   but generally I think it's better to put height and grid on container */
 
-  /*min-height so linear-gradient would not clipp at the bottom */
-  min-height: 100vh;
+//   /*min-height so linear-gradient would not clipp at the bottom */
+//   min-height: 100vh;
 
-}
+// }
 
 
 button {
   color: $very-dark-grayish-blue;
-  font-size: 15px;
-  line-height: 14px;
+  font-size: 40px;
+  line-height: 40px;
 }
 
 button:focus-visible {
@@ -37,11 +44,14 @@ button:focus-visible {
 
 
 
-.font-weight-bold {
-  font-weight: 700;
+// .font-weight-bold {
+//   font-weight: 900;
+// }
+#root {
+  width: 100%;
 }
 
 @import "faq";
-@import "attribution";
-@import "animation";
 @import "responsive";
+@import "animation";
+
