@@ -5,6 +5,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Denuncias } from "./../../views/VerDenuncias";
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 
 export default function ControlledAccordions({ denuncias=[] }) {
   const [expanded, setExpanded] = React.useState(false);
@@ -31,7 +32,7 @@ export default function ControlledAccordions({ denuncias=[] }) {
               id="panel1bh-header"
             >
               <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                
+                <ReceiptLongIcon />
                Infraccion
               </Typography>
               <Typography sx={{ color: "text.secondary" }}>
