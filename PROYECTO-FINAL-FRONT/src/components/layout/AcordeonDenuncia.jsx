@@ -8,13 +8,15 @@ import { Denuncias } from "./../../views/VerDenuncias";
 
 export default function ControlledAccordions({ denuncias=[] }) {
   const [expanded, setExpanded] = React.useState(false);
-
+  
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
   console.log(denuncias)
+  
   return (
     <div>
+      
       {denuncias.map((denuncia, key) => {
       
         return (

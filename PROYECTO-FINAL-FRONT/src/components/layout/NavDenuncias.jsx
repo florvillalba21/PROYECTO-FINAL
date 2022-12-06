@@ -1,57 +1,58 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const NavDenuncia = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-light" style={{width: "80%", marginLeft: "13.5%", marginRight: 0}}>
-        <div class="container-flex " style={{paddingLeft: "70%"}}>
+      <nav className="navbar navbar-expand-lg bg-light" style={{width: "80%", marginLeft: "13.5%", marginRight: 0}}>
+        <div className="container-flex " style={{paddingLeft: "70%"}}>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
+                  Categorias
+                </Link>
+                <ul className="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Action
-                    </a>
+                    <Link className="dropdown-item" href="#">
+                      Falta de Cédula
+                    </Link>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
-                    </a>
+                    <Link className="dropdown-item" href="#">
+                      Falta de RTO
+                    </Link>
                   </li>
                   <li>
-                    <hr class="dropdown-divider" />
+                    <Link className="dropdown-item" href="#">
+                      Falta Póliza de Seguro
+                    </Link>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Something else here
-                    </a>
+                    <Link className="dropdown-item" href="#">
+                      Falta Licencia
+                    </Link>
                   </li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
+              
             </ul>
-            <form class="d-flex" role="search">
+            <form className="d-flex" role="search">
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit">
-                Search
+              <button className="btn btn-outline-success" type="submit">
+                Buscar
               </button>
             </form>
           </div>

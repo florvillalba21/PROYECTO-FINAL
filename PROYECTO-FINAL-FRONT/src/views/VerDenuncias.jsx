@@ -41,6 +41,7 @@ export const Denuncias = () => {
         Actas realizadas en el último mes:
       </h2>
       <div style={{ marginLeft: "15%" }}>
+        
         <ControlledAccordions denuncias={state} />
       </div>
     </>
