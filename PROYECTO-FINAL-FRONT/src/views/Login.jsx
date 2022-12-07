@@ -21,17 +21,16 @@ export const Login = () => {
     };
     try {
       const res = await axios.post(url, data);
-   
+
       if (res.data.ok == true) {
         const tokenRes = res.data.token;
         const adminRol = res.data.rol;
-        sessionStorage.setItem("insp",res.data.admin.credencial )
+        sessionStorage.setItem("insp", res.data.admin.credencial);
         sessionStorage.setItem("token", tokenRes);
         sessionStorage.setItem("rol", adminRol);
 
         navigate("/homeAdmin");
       }
-
     } catch (error) {
       console.error("There was an error!", error);
       setDivAlert(divDanger);

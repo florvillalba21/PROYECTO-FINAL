@@ -18,14 +18,28 @@ export const BuscadorDom = () => {
       const res = await axios.get(`${url}/${inpDom.current.value}`);
       const infoRes = res.data;
 
-      if (data.licencia != true || data.RTO != true || data.seguro != true ) {
+      const infoList = infoRes;
+      console.log(res)
+      if (!infoList.car) {
+        setData(infoList);
         setDiv("fade show");
-        setRes(
-          "Este vehículo no está en condiciones para utlizarse como transporte de personas."
-        );
+        setRes("Este dominio no existe"), setData("");
+      }
+
+      if (
+        infoList.car.licencia != true ||
+        infoList.car.RTO != true ||
+        infoList.car.seguro != true
+      ) {
+        setData(infoList);
+        setDiv("fade show"),
+          setRes(
+            "Este vehículo no cuenta con la habilitación para utlizarse como transporte de personas."
+          );
       } else {
-        setData(infoRes);
-        setRes("Este vehículo está en regla.");
+        setData(infoList);
+        setDiv("fade show");
+        setRes(`Este vehículo está en regla.`);
       }
     } catch (error) {
       console.error("There was an error!", error);

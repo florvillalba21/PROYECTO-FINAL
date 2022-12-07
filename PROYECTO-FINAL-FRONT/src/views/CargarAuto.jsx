@@ -36,7 +36,6 @@ export const CargarAuto = () => {
 
   return (
     <>
-    <NavAdmin text={"Habilitar nuevo vehículo"}/>
       <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">

@@ -9,13 +9,18 @@ import { AuthContext } from "../context/AuthContext";
 import { CargarAuto } from "./CargarAuto";
 
 export const HomeAdmin = () => {
-  const {admin} = useContext(AuthContext);
+  const { admin } = useContext(AuthContext);
 
-  
+
   console.log(admin.rol);
   if (admin.rol == "ADMIN") {
-    return (<><NavAdmin text={"Bienvenido"} /><CargarAuto /></>);
-  } else if(admin.rol == "INSPECTOR") {
+    return (
+      <>
+        <NavAdmin text={"Bienvenido"} />
+        <CargarAuto />
+      </>
+    );
+  } else if (admin.rol == "INSPECTOR") {
     return (
       <>
         <NavAdmin text={"Bienvenido"} />
