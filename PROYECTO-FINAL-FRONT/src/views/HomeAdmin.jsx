@@ -10,7 +10,11 @@ import { CargarAuto } from "./CargarAuto";
 
 export const HomeAdmin = () => {
   const {admin} = useContext(AuthContext);
-
+  
+    if(!sessionStorage.getItem("refresh")){
+      window.location.reload();
+      sessionStorage.setItem("resfresh", true)
+    }
   
   console.log(admin.rol);
   if (admin.rol == "ADMIN") {
