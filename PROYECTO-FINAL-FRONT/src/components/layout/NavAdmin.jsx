@@ -21,6 +21,7 @@ const NavAdmin = ({ text, categoria }) => {
   const logout = () => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("rol");
+    sessionStorage.removeItem("refresh");
   };
 
   return (
